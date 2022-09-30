@@ -13,7 +13,8 @@ const init = () => {
             locale: localeRu,
             isMobile: isTouchDevice(),
             autoClose: true,
-            minDate: new Date()
+            minDate: new Date(),
+            position: item.dataset.position || 'bottom left'
 
         })
 
