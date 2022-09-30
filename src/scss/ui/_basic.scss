@@ -62,8 +62,16 @@ body {
         --color-grey : #303030;
 
         & .header,
+        & .mobile,
+        & .rest,
+        & .contacts,
+        & .feedback,
         & .footer {
             background-color: var(--color-white);
+
+            & .color-white {
+                color: var(--color-black);
+            }
         }
     }
 }

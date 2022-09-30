@@ -18,7 +18,7 @@ const quantityDecrease = (event: InputEvent): void => {
     --quantityValue
     quantity.value = String(quantityValue)
 
-    if (quantityValue < 1) quantity.value = '1'
+    if (quantityValue < 1) quantity.value = '0'
 
 }
 

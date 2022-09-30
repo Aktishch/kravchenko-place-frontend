@@ -2,7 +2,7 @@
 html {
     scrollbar: {
         width: thin;
-        color: var(--color-gray) var(--color-black);
+        color: var(--color-white) var(--color-primary);
     }
 
     &::-webkit-scrollbar {
@@ -10,14 +10,14 @@ html {
     }
 
     &::-webkit-scrollbar-track {
-        background-color: var(--color-black);
+        background-color: var(--color-primary);
     }
 
     &::-webkit-scrollbar-thumb {
         border: {
             width : var(--size-1);
             style : solid;
-            color : var(--color-black);
+            color : var(--color-primary);
             radius: var(--size-2);
         }
 
