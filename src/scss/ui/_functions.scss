@@ -1,0 +1,263 @@
+// Получение трех цветов по rgb
+@function rgbValuesFromHex($hex) {
+    @return red($hex),
+    green($hex),
+    blue($hex);
+}
+
+// Миксин цветов с разной прозрачностью
+@mixin getColors($color, $name) {
+    @if ($name=='primary'or $name=='black'or $name=='white'or $name=='gray'or $name=='grey') {
+        $rgb               : rgbValuesFromHex($color);
+        --color-#{$name}   : #{$color};
+        --color-#{$name}-10: rgba(#{$rgb}, 0.10);
+        --color-#{$name}-20: rgba(#{$rgb}, 0.20);
+        --color-#{$name}-30: rgba(#{$rgb}, 0.30);
+        --color-#{$name}-40: rgba(#{$rgb}, 0.40);
+        --color-#{$name}-50: rgba(#{$rgb}, 0.50);
+        --color-#{$name}-60: rgba(#{$rgb}, 0.60);
+        --color-#{$name}-70: rgba(#{$rgb}, 0.70);
+        --color-#{$name}-80: rgba(#{$rgb}, 0.80);
+        --color-#{$name}-90: rgba(#{$rgb}, 0.90);
+    }
+
+    @else {
+        --color-#{$name}: #{$color};
+    }
+}
+
+// Миксин для медиа-запросов
+@mixin getMedia {
+
+    @content;
+
+    @media(max-width: $laptop) {
+        &-lg {
+            @content;
+        }
+    }
+
+    @media(max-width: $tablet) {
+        &-tb {
+            @content;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &-md {
+            @content;
+        }
+    }
+}
+
+// Миксин внешних и внутренних отступов
+@mixin getDistance($value) {
+    @include getMedia {
+        @for $i from 0 through 10 {
+            &-#{$i} {
+                #{$value}: var(--size-#{$i});
+            }
+        }
+    }
+}
+
+// Миксин внешних и внутренних отступов по осям
+@mixin getDistancetXY($property, $value-first, $value-last) {
+    @include getMedia {
+        @for $i from 0 through 10 {
+            &-#{$i} {
+                #{$property}: {
+                    #{$value-first}: var(--size-#{$i});
+                    #{$value-last} : var(--size-#{$i});
+                }
+            }
+        }
+    }
+}
+
+// Миксин для кнопок
+@mixin getBtn($main, $sec) {
+    &--#{$main} {
+        --color-main  : var(--color-#{$main});
+        --color-light : var(--color-#{$main}-20);
+        --color-sec   : var(--color-#{$sec});
+        --hover-fill  : var(--color-#{$main}-80);
+        --hover-light : var(--color-#{$main}-30);
+        --border      : 2px solid var(--color-#{$main});
+        --focus       : var(--color-#{$main}-40);
+    }
+}
+
+// Миксин для выравнивания элементов
+@mixin getAlign($property) {
+    &-#{$property}-start {
+        align-#{$property}: flex-start;
+    }
+
+    &-#{$property}-center {
+        align-#{$property}: center;
+    }
+
+    &-#{$property}-end {
+        align-#{$property}: flex-end;
+    }
+
+    &-#{$property}-stretch {
+        align-#{$property}: stretch;
+    }
+}
+
+// Миксин для выравнивания контента
+@mixin getContent($property) {
+    &-start {
+        #{$property}-content: flex-start;
+    }
+
+    &-center {
+        #{$property}-content: center;
+    }
+
+    &-end {
+        #{$property}-content: flex-end;
+    }
+
+    &-stretch {
+        #{$property}-content: stretch
+    }
+
+    &-between {
+        #{$property}-content: space-between;
+    }
+
+    &-around {
+        #{$property}-content: space-around;
+    }
+
+    @if ($property=='justify') {
+        &-evenly {
+            #{$property}-content: space-evenly;
+        }
+    }
+}
+
+// Миксин для столбцов и строк
+@mixin getGridColsOrRows($value) {
+    @include getMedia {
+        @for $i from 1 through 12 {
+            &-#{$i} {
+                grid-#{$value}: span #{$i};
+            }
+        }
+    }
+}
+
+// Миксин для ширины и высоты
+@mixin getWidthOrHeight($value) {
+    @include getMedia {
+        &-100 {
+            #{$value}: 100%;
+        }
+
+        &-50 {
+            #{$value}: 50%;
+        }
+
+        &-0 {
+            #{$value}: 0;
+        }
+
+        &-max {
+            #{$value}: max-content;
+        }
+
+        &-min {
+            #{$value}: min-content;
+        }
+
+        &-auto {
+            #{$value}: auto !important;
+        }
+    }
+}
+
+// Миксины для отображения и скрытия
+@mixin getDisplay {
+    @include getMedia {
+        &-block {
+            display: block;
+        }
+
+        &-inline {
+            display: inline;
+        }
+
+        &-flex {
+            display: flex;
+        }
+
+        &-grid {
+            display: grid;
+        }
+
+        &-none {
+            display: none;
+        }
+    }
+}
+
+// Миксин для скролла
+@mixin scrollBar($property, $value-1, $value-2, $value-3) {
+    @if ($property=='thumb') {
+        background-color: var(--color-gray);
+    }
+
+    @else {
+        background: {
+            color: var(--color-gray);
+            image: linear-gradient(#{$value-1}deg, var(--color-black) 35%, var(--color-none) 41%),
+            linear-gradient(#{$value-2}deg, var(--color-black) 35%, var(--color-none) 41%),
+            linear-gradient(#{$value-3}deg, var(--color-black) 35%, var(--color-none) 41%);
+        }
+    }
+
+    &:active {
+        box-shadow: inset 0 var(--size-2) var(--size-2) var(--color-black-50);
+    }
+
+    @media(hover) {
+        &:hover {
+            background-color: var(--color-grey);
+        }
+    }
+}
+
+// Миксин для бегунка
+@mixin getRange {
+    appearance      : none;
+    height          : var(--size-4);
+    width           : var(--size-4);
+    background-color: var(--color-primary);
+    pointer-events  : all;
+    cursor          : ew-resize;
+
+    border: {
+        width : 2px;
+        style : solid;
+        color : var(--color-grey);
+        radius: 50%;
+    }
+
+    &:hover {
+        filter: brightness(110%);
+    }
+}
+
+// Миксин для элементов открытки
+@mixin getElemPostcard($top, $left, $transform, $origin, $position, $delay) {
+    top                : #{$top};
+    left               : #{$left};
+    transform          : #{$transform};
+    transform-origin   : #{$origin};
+    background-position: #{$position};
+    transition-delay   : #{$delay};
+}

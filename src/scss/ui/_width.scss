@@ -1,0 +1,12 @@
+// Ширина
+.width {
+    @include getWidthOrHeight('width');
+}
+
+.min-width {
+    @include getWidthOrHeight('min-width');
+}
+
+.max-width {
+    @include getWidthOrHeight('max-width');
+}

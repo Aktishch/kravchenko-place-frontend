@@ -1,0 +1,236 @@
+// Кнопка
+.btn {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : relative;
+    border         : none;
+    cursor         : pointer;
+
+    font: {
+        size  : var(--font-16);
+        family: var(--font-base);
+        weight: 600;
+    }
+
+    transition: {
+        duration       : 0.2s;
+        timing-function: ease;
+    }
+
+    @include getBtn('primary', 'white');
+    @include getBtn('white', 'black');
+    @include getBtn('grey', 'black');
+    @include getBtn('black', 'white');
+
+    &--fill {
+        color           : var(--color-sec);
+        background-color: var(--color-main);
+    }
+
+    &--light {
+        color           : var(--color-main);
+        background-color: var(--color-light);
+    }
+
+    &--border {
+        border: var(--border);
+    }
+
+    &--bg {
+        z-index: var(--z-1);
+
+        &::before {
+            content         : '';
+            position        : absolute;
+            top             : 0;
+            bottom          : 0;
+            right           : 0;
+            width           : 0;
+            height          : 100%;
+            background-color: var(--color-main);
+            z-index         : -1;
+
+            transition: {
+                duration       : 0.3s;
+                timing-function: ease-in-out;
+            }
+        }
+    }
+
+    &:not(&--fill, &--light) {
+        color           : var(--color-main);
+        background-color: var(--color-none);
+    }
+
+    &:not([type="checkbox"], [type="radio"]) {
+        overflow: hidden;
+
+        &:focus {
+            box-shadow: 0 0 0 var(--size-1) var(--focus);
+        }
+
+        &:active {
+            box-shadow: inset 0 var(--size-1) var(--size-1) var(--color-black-30);
+            transform : translateY(var(--size-1));
+        }
+    }
+
+    &:is([type="checkbox"], [type="radio"]):not(.switch) {
+        &::before {
+            content         : '';
+            position        : absolute;
+            left            : 50%;
+            top             : 50%;
+            border-radius   : inherit;
+            background-color: currentColor;
+        }
+
+        &:checked {
+            &::before {
+                animation: {
+                    name           : btnChecked;
+                    duration       : 1s;
+                    fill-mode      : forwards;
+                    iteration-count: 1;
+                }
+            }
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity       : 0.5;
+    }
+
+    @media(hover) {
+        &--fill:hover {
+            background-color: var(--hover-fill);
+        }
+
+        &--light:hover,
+        :is(&, &--border):not(&--fill, &--bg, [type="checkbox"], [type="radio"]):hover {
+            background-color: var(--hover-light);
+        }
+
+        &--bg:hover {
+            color: var(--color-sec);
+
+            &::before {
+                left : 0;
+                width: 100%;
+            }
+        }
+
+        &:is([type="checkbox"], [type="radio"]):hover {
+            box-shadow: 0 0 0 var(--size-1) var(--focus);
+        }
+    }
+}
+
+// Переключатели
+.checkbox {
+    --scale: 2;
+    --box  : var(--size-8);
+    width  : var(--box);
+    height : var(--box);
+
+    &::after {
+        content : '';
+        position: absolute;
+        top     : 0;
+        left    : 0;
+        bottom  : 0;
+        right   : 0;
+        width   : 100%;
+        height  : 100%;
+        opacity : 0;
+
+        transition: {
+            duration       : 0.1s;
+            property       : opacity;
+            timing-function: linear;
+        }
+
+        background: {
+            image   : url('../img/pictures/checkbox.svg');
+            repeat  : no-repeat;
+            position: center;
+            size    : var(--size-5);
+        }
+    }
+}
+
+.radio {
+    --scale: 3;
+    --box  : var(--size-5);
+    width  : var(--box);
+    height : var(--box);
+    padding: var(--size-1);
+
+    &::after {
+        content         : '';
+        display         : block;
+        position        : static;
+        width           : 100%;
+        height          : 100%;
+        border-radius   : 50%;
+        background-color: currentColor;
+        opacity         : 0;
+
+        transition: {
+            duration       : 0.1s;
+            property       : opacity;
+            timing-function: linear;
+        }
+    }
+}
+
+.switch {
+    width : calc(var(--size-10) * 2);
+    height: var(--size-8);
+
+    &::after {
+        content      : '';
+        position     : absolute;
+        top          : 0;
+        bottom       : 0;
+        margin       : auto 0;
+        height       : var(--size-6);
+        border-radius: var(--size-5);
+    }
+
+    &:not(:checked)::after {
+        left            : 2px;
+        right           : 48px;
+        background-color: var(--color-gray);
+        transition      : left 0.5s, right 0.4s 0.2s;
+    }
+
+    &:checked::after {
+        left            : 48px;
+        right           : 2px;
+        background-color: currentColor;
+        transition      : left 0.4s 0.2s, right 0.5s, background-color 0.35s -0.1s;
+    }
+}
+
+@keyframes btnChecked {
+
+    0% {
+        width    : var(--box);
+        height   : var(--box);
+        opacity  : 1;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    50% {
+        opacity  : 0;
+        transform: translate(-50%, -50%) scale(var(--scale));
+    }
+
+}

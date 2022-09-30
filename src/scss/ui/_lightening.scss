@@ -1,0 +1,28 @@
+// Анимация при наведении
+.-lightening- {
+    &::after {
+        content         : '';
+        position        : absolute;
+        left            : 0;
+        top             : 0;
+        transform       : translate(-50%, -50%) translate(var(--x), var(--y));
+        background-image: radial-gradient(circle closest-side, var(--color-white-90), transparent);
+        width           : 0;
+        height          : 0;
+        opacity         : 0.3;
+        z-index         : var(--z-1);
+
+        transition: {
+            duration       : 0.3s;
+            property       : width, height;
+            timing-function: ease;
+        }
+    }
+
+    @media(hover) {
+        &:hover::after {
+            width : 250px;
+            height: 250px;
+        }
+    }
+}

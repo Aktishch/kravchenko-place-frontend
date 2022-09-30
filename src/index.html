@@ -1,0 +1,465 @@
+    <% var data = {
+
+        title: 'kravchenko-place',
+        status: true
+
+    } %>
+
+    <%= _.template(require('./includes/header.html').default)({data}) %>
+
+
+    <!-- Зона отдыха -->
+    <section class="rest container flex flex-direction-column flex-grow relative bg-black overflow-hidden">
+        <div class="rest__bg pic absolute width-100 height-100 duration-5 anim anim--fade -elem-">
+            <div class="loader">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#loader" />
+                </svg>
+            </div>
+            <picture>
+                <source srcset="img/pictures/rest.webp" type="image/webp">
+                <img class="pic__img" src="img/pictures/rest.jpg" alt="" loading="lazy">
+            </picture>
+        </div>
+        <div class="rest__content flex align-items-center justify-content-center flex-direction-column flex-grow relative height-100">
+            <h1 class="rest__title font-alt text text--center color-white bold-5 mb-4 mb-md-6 anim anim--up -elem-">Пространство для отдыха</h1>
+            <h2 class="text text--center text-16 text-md-14 color-white bold-4 mb-8 delay-2 anim anim--up -elem-">Здесь в найдете покой и умиротворение, отдохнете как надо и будете счастливы</h2>
+            <div class="feedback relative radius-4 overflow-hidden width-100 mt-8 mt-lg-0 delay-5 anim anim--up -elem-">
+                <div class="feedback__bg pic absolute width-100 height-100">
+                    <picture>
+                        <source srcset="img/pictures/swimming-pool.webp" type="image/webp">
+                        <img class="pic__img" src="img/pictures/swimming-pool.png" alt="" loading="lazy">
+                    </picture>
+                </div>
+                <form class="feedback__form flex align-items-end justify-content-between flex-wrap relative color-white gap-4 gap-lg-6 py-8 px-10 py-md-6 px-md-5 -dialog-form-">
+                    <label class="flex flex-direction-column width-lg-100 -validate-label-">
+                        <span class="text-16 text-md-14 bold-6 mb-2">Заезд</span>
+                        <div class="cover">
+                            <input class="input -validate-input- -input-number- -calendar-" type="text" value="27.09.2022" name="check-in">
+                            <span class="error anim anim--fade -validate-error-">Пожалуйста, укажите дату заезда!</span>
+                            <span class="cover__img cover__img--calendar text-24 color-gray">
+                                <svg class="icon">
+                                    <use xlink:href="img/icons.svg#calendar" />
+                                </svg>
+                            </span>
+                        </div>
+                    </label>
+                    <label class="flex flex-direction-column width-lg-100 -validate-label-">
+                        <span class="text-16 text-md-14 bold-6 mb-2">Отъезд</span>
+                        <div class="cover">
+                            <input class="input -validate-input- -input-number- -calendar-" type="text" value="27.09.2022" name="check-out">
+                            <span class="error anim anim--fade -validate-error-">Пожалуйста, укажите дату отъезда!</span>
+                            <span class="cover__img cover__img--calendar text-24 color-gray">
+                                <svg class="icon">
+                                    <use xlink:href="img/icons.svg#calendar" />
+                                </svg>
+                            </span>
+                        </div>
+                    </label>
+                    <div class="flex flex-direction-column">
+                        <span class="text-16 text-md-14 bold-6 mb-2">Взрослые</span>
+                        <div class="feedback__quantity quantity flex align-items-center justify-content-between radius-2 border py-3 px-2">
+                            <button class="quantity__btn btn btn--grey btn--fill radius-2 -decrease-" type="button">-</button>
+                            <div class="cover">
+                                <input class="quantity__input input text text--center color-white border-none bg-none max-width-100 p-0 -quantity- -input-number-" type="text" value="1" name="adults" required>
+                            </div>
+                            <button class="quantity__btn btn btn--grey btn--fill radius-2 -increase-" type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-direction-column">
+                        <span class="text-16 text-md-14 bold-6 mb-2">Дети до 7 дней</span>
+                        <div class="feedback__quantity quantity flex align-items-center justify-content-between radius-2 border py-3 px-2">
+                            <button class="quantity__btn btn btn--grey btn--fill radius-2 -decrease-" type="button">-</button>
+                            <div class="cover">
+                                <input class="quantity__input input text text--center color-white border-none bg-none max-width-100 p-0 -quantity- -input-number-" type="text" value="0" name="childrens" required>
+                            </div>
+                            <button class="quantity__btn btn btn--grey btn--fill radius-2 -increase-" type="button">+</button>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--fill radius-2 width-tb-100 py-4 px-8" type="submit">Узнать цены</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="about-us container flex align-items-center justify-content-between flex-wrap gap-5 bg-white overflow-hidden">
+        <div class="about-us__content width-100 anim anim--right -elem-">
+            <h1 class="title font-alt text-48 text-md-30 bold-5 pb-6 pb-md-4 mb-10 mb-md-8">Всем привет</h1>
+            <p class="text-16 bold-4 interval-4 mb-5">
+                Буквально пару лет назад мне пришлось перевернуть рынок недвижимости Краснодара с ног на голову. Было не просто, потому что в то время, был пик переселения в Краснодарский край, а цены уже не те, что были в 2010-2014 годах. Очень сильно выросло число обманутых покупателей недвижимости из других регионов РФ и люди окончательно перестали верить «риелторам».
+            </p>
+            <p class="text-20 font-alt bold-6 interval-4 mb-5">Это лучшее место для отдыха в регионе</p>
+            <p class="text-16 bold-4 interval-4 mb-10">
+                И Вы знаете, нам начали доверять. В то время, я был уже весьма знаменитым человеком на рынке недвижимости Краснодара.
+            </p>
+            <button class="btn btn--primary btn--fill radius-2 py-4 px-8">Узнать больше</button>
+        </div>
+        <div class="about-us__picrure relative radius-2 width-100 delay-3 anim anim--up -elem-">
+            <div class="about-us__pic pic pic--square width-100">
+                <div class="loader">
+                    <svg class="icon">
+                        <use xlink:href="img/icons.svg#loader" />
+                    </svg>
+                </div>
+            </div>
+            <picture>
+                <source srcset="img/pictures/krav.webp" type="image/webp">
+                <img class="about-us__img width-100 mx-auto px-md-8" src="img/pictures/krav.png" alt="" loading="lazy">
+            </picture>
+        </div>
+    </section>
+
+    <!-- Наши коттеджи -->
+    <% var cottages = [
+        {
+            number: '1',
+            price: '8000',
+            rooms: '2',
+            peoples: '4',
+            delay: ''
+        },
+        {
+            number: '2',
+            price: '8000',
+            rooms: '3',
+            peoples: '8',
+            delay: 'delay-2'
+        },
+        {
+            number: '3',
+            price: '6000',
+            rooms: '2',
+            peoples: '6',
+            delay: 'delay-3'
+        },
+        {
+            number: '4',
+            price: '7000',
+            rooms: '3',
+            peoples: '5',
+            delay: ''
+        },
+        {
+            number: '5',
+            price: '8000',
+            rooms: '2',
+            peoples: '4',
+            delay: 'delay-2'
+        },
+        {
+            number: '6',
+            price: '8000',
+            rooms: '2',
+            peoples: '6',
+            delay: 'delay-3'
+        }
+    ] %>
+    <section class="cottages container bg-grey" id="cottages">
+        <h1 class="font-alt text text--center text-48 text-md-30 bold-5 mb-2 anim anim--up -elem-">Наши коттеджи</h1>
+        <h2 class="text text--center text-16 text-md-14 bold-4 fade-70 mb-10 mb-md-7 delay-2 anim anim--up -elem-">Ваше приватное пространство для отдыха</h2>
+        <div class="grid gap-8 gap-md-4">
+            <% for (var i = 0; i < cottages.length; i++) { %>
+                <a class="cottages__item card col-4 col-lg-6 p-2 p-md-1 <%= cottages[i].delay %> anim anim--up -elem- -waved-" data-fancybox data-type="ajax" data-src="dialogs/dialog-detail.html">
+                    <div class="relative radius-2 overflow-hidden">
+                        <div class="cottages-slider absolute">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <% for (var j = 0; j < 6; j++) { %>
+                                        <div class="swiper-slide pic pic--square">
+                                            <div class="loader">
+                                                <svg class="icon">
+                                                    <use xlink:href="img/icons.svg#loader" />
+                                                </svg>
+                                            </div>
+                                            <picture>
+                                                <source srcset="img/pictures/cottage-<%= cottages[i].number %>.webp" type="image/webp">
+                                                <img class="pic__img" src="img/pictures/cottage-<%= cottages[i].number %>.png" alt="" loading="lazy">
+                                            </picture>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cottages__pic pic pic--square z-3 ease duration-3">
+                            <div class="loader">
+                                <svg class="icon">
+                                    <use xlink:href="img/icons.svg#loader" />
+                                </svg>
+                            </div>
+                            <picture>
+                                <source srcset="img/pictures/cottage-<%= cottages[i].number %>.webp" type="image/webp">
+                                <img class="pic__img" src="img/pictures/cottage-<%= cottages[i].number %>.png" alt="" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="cottages__more flex align-items-center justify-content-center absolute z-3 width-100 height-100 anim anim--right">
+                            <button class="btn btn--white btn--light radius-10 py-4 px-7 -waved-">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="card-content py-5 px-2 py-md-3 px-md-1">
+                        <div class="text-16 text-md-14 bold-4 mb-2 mb-md-0">Коттедж <%= cottages[i].number %></div>
+                        <div class="text-24 text-md-18 bold-7 mb-6 mb-md-3">От <%= cottages[i].price %> ₽</div>
+                        <div class="flex align-items-center flex-wrap gap-2">
+                            <div class="cottages__elem flex align-items-center border radius-8 py-2 px-5 px-md-3">
+                                <div class="text-24 text-md-14 color-gray mr-3 mr-md-1">
+                                    <svg class="icon">
+                                        <use xlink:href="img/icons.svg#room" />
+                                    </svg>
+                                </div>
+                                <div class="text-16 text-md-12 bold-4">
+                                    <%= cottages[i].rooms %>
+                                    <span class="display-md-none">-комн</span>
+                                </div>
+                            </div>
+                            <div class="cottages__elem flex align-items-center border radius-8 py-2 px-5 px-md-3">
+                                <div class="text-18 text-md-12 color-gray mr-3 mr-md-1">
+                                    <svg class="icon">
+                                        <use xlink:href="img/icons.svg#user" />
+                                    </svg>
+                                </div>
+                                <div class="text-16 text-md-12 bold-4">
+                                    <%= cottages[i].peoples %> 
+                                    <span class="display-md-none">чел</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Помещение -->
+    <% var building = [
+        {
+            number: '1',
+            title: 'Деревянная баня'
+        },
+        {
+            number: '2',
+            title: 'Отапливаемый бассейн'
+        },
+        {
+            number: '3',
+            title: 'Ухоженный газон'
+        },
+        {
+            number: '4',
+            title: 'Мангальные зоны'
+        },
+        {
+            number: '5',
+            title: 'Лечебная галька'
+        }
+    ] %>
+    <section class="building container relative bg-white overflow-hidden">
+        <div class="building__bg absolute bg-black width-100 height-100">
+            <div class="bg-slider width-100 height-100">
+                <div class="swiper m-0 p-0 height-100">
+                    <div class="swiper-wrapper height-100">
+                        <% for (var i = 0; i < building.length; i++) { %>
+                            <div class="swiper-slide pic pic--segment width-100 height-100">
+                                <div class="loader">
+                                    <svg class="icon">
+                                        <use xlink:href="img/icons.svg#loader" />
+                                    </svg>
+                                </div>
+                                <picture>
+                                    <source srcset="img/pictures/build-bg-<%= building[i].number %>.webp" type="image/webp">
+                                    <img class="pic__img" src="img/pictures/build-bg-<%= building[i].number %>.png" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="building__content flex justify-content-between gap-10 gap-lg-4 relative z-3 bg-white radius-2 p-4 p-md-2 linear duration-4 delay-2 anim anim--fade -elem-">
+            <div class="building__info relative width-100 py-10 pl-10 py-lg-5 pl-lg-5 pr-lg-5 py-md-2 pl-md-2 pr-md-2">
+                <div class="text-16 bold-6 border radius-10 width-max mb-8 mb-md-4 py-3 px-8">Наша территория</div>
+                <div class="detail-slider">
+                    <div class="swiper m-0 p-0">
+                        <div class="swiper-wrapper">
+                            <% for (var i = 0; i < building.length; i++) { %>
+                                <div class="swiper-slide height-auto">
+                                    <div class="flex flex-direction-column flex-grow height-100">
+                                        <h1 class="title font-alt text-42 text-lg-32 text-md-24 bold-5 pb-6 pb-md-4 mb-5"><%= building[i].title %></h1>
+                                        <p class="display-md-none text-16 bold-4 interval-4 mt-auto">
+                                            Буквально пару лет назад мне пришлось перевернуть рынок недвижимости Краснодара с ног на голову. Было не просто, потому что в то время, был пик переселения в Краснодарский край, а цены уже не те.<br>
+                                            <br>
+                                            Это лучшее место для отдыха в регионе И Вы знаете, нам начали доверять. В то время, я был уже весьма знаменитым человеком на рынке недвижимости.
+                                        </p>
+                                        <p class="display-none display-md-block text-14 bold-4 interval-4 -list-">
+                                            Буквально пару лет назад мне пришлось перевернуть рынок недвижимости Краснодара с ног на голову. Было не просто, потому что в то<span class="-list-show-">...<span class="link link--underline color-primary bold-7 ">Читать дальше</span></span>
+                                            <span class="display-none -list-el-hid-">
+                                                время, был пик переселения в Краснодарский край, а цены уже не те.<br>
+                                                <br>
+                                                Это лучшее место для отдыха в регионе И Вы знаете, нам начали доверять. В то время, я был уже весьма знаменитым человеком на рынке недвижимости.
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="building__btns flex align-items-center gap-4 absolute mt-lg-6 pb-md-4">
+                    <button class="building__btn swiper-button-prev btn btn--primary btn--fill relative radius-10 py-4 px-5 mt-0 -waved-">
+                        <span class="text-14 mr-3">
+                            <svg class="icon">
+                                <use xlink:href="img/icons.svg#arrow-left" />
+                            </svg>
+                        </span>
+                        <span>Назад</span>
+                    </button>
+                    <button class="building__btn swiper-button-next btn btn--primary btn--fill relative radius-10 py-4 px-5 mt-0 -waved-">
+                        <span>Дальше</span>
+                        <span class="text-14 ml-3">
+                            <svg class="icon">
+                                <use xlink:href="img/icons.svg#arrow-right" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="images-slider relative radius-2 width-100 overflow-hidden">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <% for (var i = 0; i < building.length; i++) { %>
+                            <a class="swiper-slide pic pic--square -lightening-" href="img/pictures/build-<%= building[i].number %>.jpg" data-fancybox>
+                                <div class="loader">
+                                    <svg class="icon">
+                                        <use xlink:href="img/icons.svg#loader" />
+                                    </svg>
+                                </div>
+                                <picture>
+                                    <source srcset="img/pictures/build-<%= building[i].number %>.webp" type="image/webp">
+                                    <img class="pic__img pic__img--rise" src="img/pictures/build-<%= building[i].number %>.jpg" alt="" loading="lazy">
+                                </picture>
+                            </a>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="images-slider__pagination absolute z-2 width-100 height-100">
+                    <div class="swiper-pagination z-3 color-white"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Интерьер -->
+    <% var interior = [
+        {
+            col: 'col-4 col-lg-5',
+            title: 'Очаг',
+            number: '1'
+        },
+        {
+            col: 'col-8 col-lg-7',
+            title: 'Просторная веранда',
+            number: '2'
+        },
+        {
+            col: 'col-8 col-lg-7',
+            title: 'Барная стойка',
+            number: '3'
+        },
+        {
+            col: 'col-4 col-lg-5',
+            title: 'Приватная зона',
+            number: '4'
+        }
+    ] %>
+    <section class="interior container bg-white overflow-hidden" id="interior">
+        <p class="text text--center text-16 text-md-14 bold-6 mb-6 anim anim--up -elem-">
+            Отдохнуть от суеты <br class="display-none display-md-block">
+            без раздражающих соседей
+        </p>
+        <h1 class="font-alt text text--center text-38 text-tb-30 text-md-20 text-clip-dark bold-5 interval-3 mb-10 mb-md-7 delay-2 anim anim--up -elem-">
+            Я своими руками проектировал и строил <br class="display-md-none">
+            этот ресторан, составлял меню и готовил блюда. <br class="display-md-none">
+            Если вы не попробуете, то можете не приезжать
+        </h1>
+        <h2 class="interior__subtitle subtitle width-max mx-auto delay-4 anim anim--up -elem-">
+            <span class="text text--center text--uppercase text-16 text-md-14 bold-5 fade-60 ml-7 ml-md-2">Александр кравченко о ресторане</span>
+        </h2>
+        <div class="grid gap-10 gap-lg-6">
+            <% for (var i = 0; i < interior.length; i++) { %>
+                <div class="interior__item pic <%= interior[i].col %> col-tb-12 radius-2 ease-in duration-4 delay-2 anim anim--left -elem- -lightening-">
+                    <div class="loader">
+                        <svg class="icon">
+                            <use xlink:href="img/icons.svg#loader" />
+                        </svg>
+                    </div>
+                    <picture>
+                        <source srcset="img/pictures/interior-<%= interior[i].number %>.webp" type="image/webp">
+                        <img class="pic__img pic__img--rise" src="img/pictures/interior-<%= interior[i].number %>.jpg" alt="" loading="lazy">
+                    </picture>
+                    <div class="interior__name flex flex-direction-column flex-grow absolute width-100 height-100 py-10 px-8 py-lg-8 px-lg-4 py-tb-8 px-tb-8">
+                        <h2 class="subtitle mt-auto">
+                            <span class="font-alt text-20 text-clip-smoke bold-6 ml-4"><%= interior[i].title %></span>
+                        </h2>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <% var gallery = [
+        {
+            number: '1',
+            row: 'row-3'
+        },
+        {
+            number: '2',
+            row: 'row-4'
+        },
+        {
+            number: '3',
+            row: 'row-2'
+        },
+        {
+            number: '4',
+            row: 'row-3'
+        },
+        {
+            number: '5',
+            row: 'row-4'
+        },
+        {
+            number: '6',
+            row: 'row-2'
+        }
+    ] %>
+    <section class="gallery container bg-grey overflow-hidden" id="gallery">
+        <div class="gallery__head flex flex-wrap justify-content-between gap-7 mb-10">
+            <h1 class="title font-alt text-48 text-md-30 bold-5 pb-6 pb-md-4 anim anim--up -elem-">Kravchenko Place</h1>
+            <p class="tetx-18 bolt-4 interval-5 anim anim--up -elem-">
+                Буквально пару лет назад мне пришлось перевернуть <br class="display-md-none">
+                рынок недвижимости Краснодара с ног на голову. Было <br class="display-md-none">
+                не просто, потому что в то время, был пик переселения в <br class="display-md-none">
+                Краснодарский край, а цены уже не те. Это лучшее место <br class="display-md-none">
+                для отдыха в регионе
+            </p>
+        </div>
+        <div class="gallery__items grid gap-10 gap-lg-4">
+            <% for (var i = 0; i < gallery.length; i++) { %>
+                <div class="col-6 <%= gallery[i].row %> radius-2 overflow-hidden ease-in-out duration-6 delay-4 anim anim--rotate -elem-">
+                    <a class="gallery__item gallery__item--<%= gallery[i].number %> pic display-block radius-2 width-100 height-100 -lightening-" href="img/pictures/gallery-<%= gallery[i].number %>.jpg" data-fancybox="gallery">
+                        <div class="loader">
+                            <svg class="icon">
+                                <use xlink:href="img/icons.svg#loader" />
+                            </svg>
+                        </div>
+                        <picture>
+                            <source srcset="img/pictures/gallery-<%= gallery[i].number %>.webp" type="image/webp">
+                            <img class="pic__img pic__img--rise" src="img/pictures/gallery-<%= gallery[i].number %>.jpg" alt="" loading="lazy">
+                        </picture>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <%= _.template(require('./includes/footer.html').default)({}) %>

@@ -1,0 +1,24 @@
+<div class="dialog dialog--small bg-white radius-4 overflow-hidden">
+    <div class="flex align-items-center justify-content-center bg-grey font-alt text text--center text-22 p-8">Узнать цену</div>
+    <form class="flex flex-direction-column py-6 px-8 -validate-form-">
+        <label class="flex flex-direction-column mb-5 -validate-label-">
+            <span class="text-14 bold-6 mb-2">Ваше имя</span>
+            <div class="cover">
+                <input class="input -validate-input- -input-name-" type="text" name="name">
+                <span class="error anim anim--fade -validate-error-">Пожалуйста, напишите ваше имя!</span>
+            </div>
+        </label>
+        <label class="flex flex-direction-column mb-8 -validate-label-">
+            <span class="text-14 bold-6 mb-2">Ваш телефон</span>
+            <div class="cover">
+                <input class="input -validate-input- -input-tel-" type="tel" name="tel">
+                <span class="error anim anim--fade -validate-error-">Пожалуйста, введите ваш номер!</span>
+            </div>
+        </label>
+        <button class="btn btn--primary btn--fill radius-2 width-tb-100 py-4 px-8 mb-5" type="submit">Отправить заявку</button>
+        <span class="link link--underline text text--center text-12 bold-4 fade-60" data-fancybox data-type="ajax" data-src="dialogs/dialog-politics.html">
+            Отправляя форму Вы даете согласие на обработку <br>
+            Ваших персональных данных
+        </span>
+    </form>
+</div>

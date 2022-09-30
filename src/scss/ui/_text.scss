@@ -1,0 +1,67 @@
+// Размер текста
+.text {
+    font: {
+        weight: normal;
+        style : normal;
+    }
+
+    &--italic {
+        font-style: italic;
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
+    &--underline {
+        border-bottom: 1px solid currentColor;
+    }
+
+    &--dotted {
+        border-bottom: 2px dotted currentColor;
+    }
+
+    &--dashed {
+        border-bottom: 2px dashed currentColor;
+    }
+
+    &--line {
+        text-decoration: line-through;
+    }
+
+    @each $value in $text-align {
+        &--#{$value} {
+            text-align: #{$value};
+        }
+    }
+
+    @include getMedia {
+        @for $i from 5 through 25 {
+            &-#{calc(2 * $i)} {
+                font-size: var(--font-#{calc(2 * $i)});
+            }
+        }
+    }
+}
+
+// Шрифты
+@each $key,
+$value in $font-family {
+    .font-#{$key} {
+        font-family: var(--font-#{$key});
+    }
+}
+
+// Насыщенность текста
+@for $i from 1 to 10 {
+    .bold-#{$i} {
+        font-weight: #{calc($i * 100)};
+    }
+}
+
+// Межстрочный интервал
+@for $i from 1 to 10 {
+    .interval-#{$i} {
+        line-height: #{calc(1 + ($i / 10))};
+    }
+}

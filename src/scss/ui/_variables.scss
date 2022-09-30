@@ -1,0 +1,72 @@
+// Переменные цветов
+$colors: ('none': rgba(0, 0, 0, 0),
+    'primary': #118ABD,
+    'black': #171717,
+    'white': #ffffff,
+    'grey': #EEEEEE,
+    'gray': #828A99,
+    'dark': #303030,
+    'green': #27ae60,
+    'red': #be1b1b);
+
+// Переменные шрифтов
+$font-family: ('alt': 'SharpGrotesk',
+    'base': 'Inter'
+);
+
+// Переменные позиционирования
+$position: 'static',
+'sticky',
+'relative',
+'absolute',
+'fixed';
+
+// Переменные выравнивания текста
+$text-align: 'left',
+'center',
+'right',
+'justify';
+
+// Переменные анимации
+$transition: 'ease',
+'ease-in',
+'ease-out',
+'ease-in-out',
+'linear';
+
+// Переменные разрешений экрана
+$laptop: 1200px;
+$tablet: 768px;
+$mobile: 576px;
+
+// Создание переменных в CSS
+:root {
+
+    @each $key,
+    $value in $colors {
+        @include getColors($value, $key);
+    }
+
+    @for $i from 5 through 25 {
+        --font-#{calc(2 * $i)}: #{calc(2 * $i / 16) + rem};
+    }
+
+    @for $i from 0 through 10 {
+        --size-#{$i}: #{calc(4 * $i) + px};
+    }
+
+    @for $i from 0 to 10 {
+        --z-#{$i}: #{calc(100 * $i)};
+    }
+
+    @each $key,
+    $value in $font-family {
+        --font-#{$key}: '#{$value}';
+    }
+}
+
+// Выделение
+::selection {
+    color           : var(--color-white);
+    background-color: var(--color-primary);
+}

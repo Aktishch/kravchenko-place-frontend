@@ -1,0 +1,22 @@
+// Контейнер
+.container {
+    padding: var(--size-10) var(--size-4);
+
+    @media(min-width: $mobile) {
+        & {
+            padding: var(--size-10) calc(50% - 265px);
+        }
+    }
+
+    @media(min-width: $tablet) {
+        & {
+            padding: 60px calc(50% - 360px);
+        }
+    }
+
+    @media(min-width: $laptop) {
+        & {
+            padding: 80px calc(50% - 580px);
+        }
+    }
+}

@@ -1,0 +1,61 @@
+// Изображение
+.pic {
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+        content : '';
+        display : block;
+        position: static;
+    }
+
+    &--segment::before {
+        padding-top: 50%;
+    }
+
+    &--rect {
+        &-x::before {
+            padding-top: 75%;
+        }
+
+        &-y::before {
+            padding-top: 125%;
+        }
+    }
+
+    &--square::before {
+        padding-top: 100%;
+    }
+
+    &__img {
+        position: absolute;
+        top     : 0;
+        left    : 0;
+        right   : 0;
+        bottom  : 0;
+        width   : 100%;
+        height  : 100%;
+
+        &:not(&--sd) {
+            object-fit: cover;
+        }
+
+        &--sd {
+            object-fit: scale-down;
+        }
+
+        &--rise {
+            transition: {
+                duration       : 0.3s;
+                property       : transform;
+                timing-function: linear;
+            }
+        }
+    }
+
+    @media(hover) {
+        &:hover &__img--rise {
+            transform: scale(1.1);
+        }
+    }
+}

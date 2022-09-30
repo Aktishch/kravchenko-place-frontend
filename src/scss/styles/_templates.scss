@@ -1,0 +1,303 @@
+// Шапка документа
+.header {
+    top  : 0;
+    left : 0;
+    right: 0;
+}
+
+// Навигация
+.nav {
+    max-width: 420px;
+}
+
+// Логотип
+.logo {
+    &__img {
+        width: 52px;
+    }
+
+    &__text {
+        width: 120px;
+    }
+
+    @media(max-width: $laptop) {
+        &__img {
+            width: var(--size-8);
+        }
+
+        &__text {
+            width: 70px;
+        }
+    }
+}
+
+// Соц-сети
+.social {
+    &__btn {
+        width : 28px;
+        height: 28px;
+    }
+}
+
+// Мобильное меню
+.mobile {
+    top       : 0;
+    left      : 0;
+    bottom    : 0;
+    right     : 0;
+    max-width : 375px;
+    box-shadow: 0 0 0 100vw var(--color-black-50);
+
+    &:not(&--show) {
+        transform : translateX(-100%);
+        opacity   : 0;
+        visibility: hidden;
+    }
+
+    &:not(&--show) &__head {
+        transform: translateY(-80px);
+    }
+
+    &:not(&--show) &__nav {
+        transform: translateX(-220px);
+        opacity  : 0;
+    }
+
+    &:not(&--show) &__footer {
+        transform: translateY(30px);
+        opacity  : 0;
+    }
+
+    &__btn {
+        width : 48px;
+        height: 48px;
+    }
+
+    &--show {
+        transform : translateX(0);
+        opacity   : 1;
+        visibility: visible;
+    }
+
+    &--show &__head {
+        transform: translateY(0);
+    }
+
+    &--show &__nav {
+        transform: translateX(0);
+        opacity  : 1;
+    }
+
+    &--show &__footer {
+        transform: translateY(0);
+        opacity  : 1;
+    }
+}
+
+// Перетаскиваемая кнопка на мобильных устройствах
+.draggable-btn {
+    width              : var(--size-10);
+    height             : var(--size-10);
+    top                : var(--size-8);
+    right              : var(--size-4);
+    padding            : 2px;
+    transition-property: transform, opacity;
+
+    margin: {
+        top : calc(-1 * var(--size-5));
+        left: calc(-1 * var(--size-5));
+    }
+
+    &::before {
+        content      : '';
+        display      : block;
+        position     : static;
+        width        : 100%;
+        height       : 100%;
+        border-radius: inherit;
+        box-shadow   : inherit;
+
+        background: {
+            color   : currentColor;
+            image   : url('../img/pictures/calendar.svg');
+            repeat  : no-repeat;
+            position: center;
+            size    : 18px;
+        }
+    }
+}
+
+// Обратная связь
+.feedback {
+    &__bg {
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+    }
+
+    &__form {
+        background: linear-gradient(272.58deg, rgba(17, 138, 189, 0.2) 15.4%, rgba(17, 138, 189, 0) 65.51%), rgb(23, 23, 23, 0.87);
+    }
+
+    &__quantity {
+        width           : 145px;
+        background-color: var(--color-white-10);
+        border-color    : var(--color-white-20);
+    }
+
+    @media(max-width: $mobile) {
+        &__form {
+            color     : var(--color-black);
+            background: var(--color-white);
+        }
+
+        &__quantity {
+            width       : 135px;
+            border-color: var(--color-grey);
+
+            & input {
+                color: var(--color-black);
+            }
+        }
+    }
+}
+
+// Поле количества
+.quantity {
+    &__btn {
+        min-width: var(--size-7);
+        height   : var(--size-7);
+    }
+
+    &__input {
+        border-radius: 0;
+    }
+}
+
+// Заголовок
+.title {
+    position: relative;
+
+    &::after {
+        content         : '';
+        position        : absolute;
+        left            : 0;
+        bottom          : 0;
+        width           : 100px;
+        height          : var(--size-1);
+        background-color: var(--color-primary);
+    }
+}
+
+// Подзаголовок
+.subtitle {
+    display    : flex;
+    align-items: center;
+    position   : relative;
+
+    &::before {
+        content         : '';
+        display         : block;
+        position        : static;
+        min-width       : var(--size-10);
+        height          : var(--size-1);
+        background-color: var(--color-primary);
+    }
+}
+
+// Градиент текста
+.text-clip {
+    &-dark {
+        color                  : var(--color-black);
+        background             : linear-gradient(272.58deg, rgba(17, 138, 189, 0.5) 15.4%, rgba(17, 138, 189, 0) 65.51%), #171717;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip        : text;
+        text-fill-color        : transparent;
+    }
+
+    &-smoke {
+        background             : linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip        : text;
+        text-fill-color        : transparent;
+    }
+}
+
+// Большая иконка
+.submit-pic {
+    font-size: calc(var(--font-50) * 2);
+}
+
+// Контакты
+.contacts {
+    &__container {
+        top           : 0;
+        left          : 0;
+        bottom        : 0;
+        pointer-events: none;
+    }
+
+    &__block {
+        pointer-events: all;
+    }
+
+    &__content {
+        width     : 560px;
+        padding   : 60px 46px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 31.77%, rgba(0, 0, 0, 0.2) 100%), var(--color-primary);
+    }
+
+    &__btn {
+        width : var(--size-9);
+        height: var(--size-9);
+    }
+
+    &__bg {
+        top           : 0;
+        left          : 0;
+        bottom        : 0;
+        right         : 0;
+        pointer-events: none;
+    }
+
+    @media(max-width: $tablet) {
+        &__container {
+            position: static;
+        }
+
+        &__content {
+            width  : 100%;
+            padding: var(--size-10) var(--size-4);
+        }
+
+        &__block {
+            border-radius: 0;
+        }
+
+        &__btn {
+            width : var(--size-10);
+            height: var(--size-10);
+        }
+    }
+}
+
+// Подвал
+.footer {
+    &__link {
+        width: 64px;
+    }
+
+    @media(max-width: $mobile) {
+        &__main {
+            flex-direction: column;
+            align-items   : flex-start;
+        }
+
+        &__link {
+            width: 55px;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+// Модальные окна
+.dialog {
+    color    : var(--color-black);
+    max-width: 100%;
+
+    &--small {
+        width: 375px;
+    }
+
+    &--medium {
+        width: 620px;
+    }
+
+    &--large {
+        width: 1160px;
+    }
+
+    @media(max-width: $laptop) {
+        & {
+            width: 375px;
+        }
+    }
+}

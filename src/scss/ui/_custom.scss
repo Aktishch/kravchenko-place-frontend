@@ -1,0 +1,67 @@
+// Yandex-map
+.map {
+    height: 630px;
+
+    @media(max-width: $tablet) {
+        & {
+            height: 460px;
+        }
+    }
+}
+
+// Fancybox
+.fancybox__content {
+    padding   : 0;
+    background: none;
+    max-width : 100%;
+
+    & :focus:not(.carousel__button.is-close) {
+        outline: none;
+    }
+
+    &>.carousel__button.is-close {
+        top             : var(--size-2);
+        right           : var(--size-2);
+        color           : var(--color-black-40);
+        background-color: var(--color-white);
+    }
+}
+
+// Slider-swiper
+.swiper {
+    margin : calc(-1 * var(--size-4));
+    padding: var(--size-4);
+
+    &-pagination {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        position       : absolute;
+        bottom         : var(--size-5);
+
+        &-bullet {
+            width           : var(--size-3);
+            height          : var(--size-3);
+            background-color: currentColor;
+        }
+    }
+
+    &-button {
+
+        &-prev,
+        &-next {
+            width   : auto;
+            height  : auto;
+            position: absolute;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+// Календарь
+.air-datepicker-global-container {
+    z-index: 1060;
+}

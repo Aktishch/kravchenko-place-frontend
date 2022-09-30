@@ -1,0 +1,337 @@
+// Зона отдыха
+.rest {
+    padding-top: 100px;
+    min-height : 100vh;
+
+    &__bg {
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+    }
+
+    &__title {
+        font-size: calc(2 * var(--font-32));
+    }
+
+    @media(max-width: $laptop) {
+        &__title {
+            font-size: var(--font-40);
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__title {
+            font-size: var(--font-30);
+        }
+    }
+}
+
+// О нас
+.about-us {
+    &__content {
+        max-width: 570px;
+    }
+
+    &__picrure {
+        max-width : 500px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #E9E9E9;
+    }
+
+    &__img {
+        position : absolute;
+        left     : 0;
+        right    : 0;
+        bottom   : 0;
+        max-width: 410px;
+    }
+
+    @media(max-width: $laptop) {
+        &__picrure {
+            order : 1;
+            margin: 0 auto;
+        }
+
+        &__content {
+            order: 2;
+        }
+    }
+}
+
+// Наши коттеджи
+.cottages {
+
+    &-slider,
+    &__more {
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+    }
+
+    &__more {
+        transform       : translateX(-100%);
+        background-color: var(--color-black-70);
+    }
+
+    &__elem {
+        border-color: var(--color-black-20);
+        height      : var(--size-10);
+    }
+
+    @media(max-width: $mobile) {
+        &__item {
+            transition-delay: 0s;
+        }
+
+        &__elem {
+            height: var(--size-8);
+        }
+    }
+
+    @media(hover) {
+        &__item:hover &__pic {
+            opacity: 0;
+        }
+
+        &__item:hover &__more {
+            transform: translateX(0);
+            opacity  : 1;
+        }
+    }
+}
+
+// Помещение
+.building {
+    &__bg {
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+    }
+
+    &__info {
+        max-width: 490px;
+    }
+
+    &__btns {
+        left  : 40px;
+        bottom: 20px;
+    }
+
+    &__btn {
+        width : 140px;
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+
+        &.swiper-button-disabled {
+            color           : var(--color-black);
+            background-color: var(--color-grey);
+            opacity         : 1;
+        }
+    }
+
+    @media(max-width: $laptop) {
+        &__content {
+            flex-direction: column;
+        }
+
+        &__info {
+            order    : 2;
+            max-width: 100%;
+        }
+
+        &__btns {
+            position: static;
+        }
+
+        &__btn {
+            width: 130px;
+        }
+    }
+}
+
+// Слайдер деталей
+.detail-slider {
+    & {
+        max-height: 350px;
+    }
+
+    @media(max-width: $laptop) {
+        & {
+            max-height: none;
+        }
+    }
+}
+
+// Слайдер изображений
+.images-slider {
+    max-width: 600px;
+
+    &__pagination {
+        top       : 0;
+        left      : 0;
+        right     : 0;
+        bottom    : 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 71.3%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+
+    @media(max-width: $laptop) {
+        & {
+            order    : 1;
+            max-width: 350px;
+        }
+    }
+}
+
+// Интерьер
+.interior {
+    &__subtitle {
+        margin-bottom: 120px;
+
+        &::before {
+            height: 2px;
+        }
+    }
+
+    &__item {
+        height: 480px;
+    }
+
+    &__name {
+        top       : 0;
+        left      : 0;
+        right     : 0;
+        bottom    : 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 67.19%, #000000 100%);
+    }
+
+    @media(max-width: $laptop) {
+        &__subtitle {
+            margin-bottom: 70px;
+        }
+
+        &__item {
+            height: 390px;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__subtitle {
+            margin-bottom: 50px;
+
+            &::before {
+                min-width: var(--size-7);
+            }
+        }
+    }
+}
+
+// Галерея
+.gallery {
+    &__head {
+        margin-bottom: 110px;
+    }
+
+    &__items {
+        grid-auto-rows: 160px;
+    }
+
+    &__item {
+        &--2 {
+            margin-top: var(--size-10);
+        }
+
+        &--5 {
+            margin-top: calc(-1 * var(--size-10));
+        }
+    }
+
+    @media(max-width: $laptop) {
+        &__head {
+            margin-bottom: 70px;
+        }
+
+        &__items {
+            grid-auto-rows: 100px;
+        }
+
+        &__item {
+            &--2 {
+                margin-top: var(--size-4);
+            }
+
+            &--5 {
+                margin-top: calc(-1 * var(--size-4));
+            }
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__head {
+            margin-bottom: var(--size-10);
+        }
+
+        &__items {
+            grid-auto-rows: 60px;
+        }
+    }
+}
+
+// Детальная
+.details {
+    &-slider {
+        max-width: 500px;
+
+        &__btn {
+            width: var(--size-10);
+            height: var(--size-10);
+        }
+    }
+
+    &__item {
+        height: 48px;
+    }
+
+    &__content {
+        max-width: 530px;
+        border-color: var(--color-black-20);
+    }
+
+    @media(max-width: $laptop) {
+        & {
+            flex-direction: column;
+        }
+
+        &-slider {
+            border-radius: 0;
+        }
+
+        &__item {
+            height: var(--size-10);
+        }
+
+        &__name {
+            order: 1;
+        }
+
+        &__price {
+            order: 2;
+        }
+
+        &__items {
+            order: 3;
+        }
+
+        &__btn {
+            order: 4;
+        }
+
+        &__description {
+            order: 5;
+        }
+    }
+}

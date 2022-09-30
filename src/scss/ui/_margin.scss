@@ -1,0 +1,58 @@
+// Внешние отступы
+.m {
+    @include getDistance('margin');
+
+    &-auto {
+        margin: auto
+    }
+
+    &t {
+        @include getDistance('margin-top');
+
+        &-auto {
+            margin-top: auto;
+        }
+    }
+
+    &b {
+        @include getDistance('margin-bottom');
+
+        &-auto {
+            margin-bottom: auto;
+        }
+    }
+
+    &l {
+        @include getDistance('margin-left');
+
+        &-auto {
+            margin-left: auto;
+        }
+    }
+
+    &r {
+        @include getDistance('margin-right');
+
+        &-auto {
+            margin-right: auto;
+        }
+    }
+
+    &y {
+        @include getDistancetXY('margin', top, bottom);
+
+        &-auto {
+            margin-top   : auto;
+            margin-bottom: auto;
+        }
+    }
+
+    &x {
+        @include getDistancetXY('margin', left, right);
+
+        &-auto {
+            margin-left : auto;
+            margin-right: auto;
+        }
+    }
+}

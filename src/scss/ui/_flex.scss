@@ -1,0 +1,45 @@
+// Флексбокс
+.flex {
+    display: flex;
+
+    &-wrap {
+        flex-wrap: wrap;
+    }
+
+    &-grow {
+        flex-grow: 1;
+    }
+
+    &-direction {
+        &-column {
+            flex-direction: column;
+
+            &-reverse {
+                flex-direction: column-reverse;
+            }
+        }
+
+        &-row {
+            flex-direction: row;
+
+            &-reverse {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}
+
+// Выравнивание элементов
+.align {
+    @include getAlign('items');
+    @include getAlign('self');
+
+    &-content {
+        @include getContent('align');
+    }
+}
+
+// Выравнивание контента
+.justify-content {
+    @include getContent('justify');
+}

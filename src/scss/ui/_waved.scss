@@ -1,0 +1,32 @@
+// Анимация при клике
+.circle {
+    display         : block;
+    position        : absolute;
+    border-radius   : 50%;
+    background-color: var(--color-white-40);
+    pointer-events  : none;
+    width           : var(--size-10);
+    height          : var(--size-10);
+    transform       : translate(-50%, -50%);
+    z-index         : var(--z-1);
+
+    animation: {
+        name     : scaleUp;
+        duration : 1s;
+        fill-mode: forwards;
+    }
+}
+
+@keyframes scaleUp {
+
+    0% {
+        opacity  : 1;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        opacity  : 0;
+        transform: translate(-50%, -50%) scale(25);
+    }
+
+}

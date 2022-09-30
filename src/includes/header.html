@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="autor" content="Александр Актищев (Студия КИТ)"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <title><%= data.title %></title>
+</head>
+<body>
+
+    <!-- Шапка документа -->
+
+    <header class="header container flex align-items-center justify-content-between fixed z-5 gap-5 gap-md-3 py-4 py-md-3 ease-in duration-3 -header-">
+        <button class="burger btn btn--white btn--light display-none display-lg-flex radius-2 p-3 -burger- -waved-">
+            <svg class="icon">
+                <use xlink:href="img/icons.svg#burger" />
+            </svg>
+        </button>
+        <nav class="nav flex align-items-center justify-content-between display-lg-none width-100 gap-5">
+            <a class="link link--underline text-16 color-white bold-4 width-max" href="#cottages" data-href>Номера</a>
+            <a class="link link--underline text-16 color-white bold-4 width-max" href="#interior" data-href>Территория</a>
+            <a class="link link--underline text-16 color-white bold-4 width-max" href="#gallery" data-href>Галерея</a>
+            <a class="link link--underline text-16 color-white bold-4 width-max" href="#contacts" data-href>Контакты</a>
+        </nav>
+        <a class="logo btn flex-direction-column" href="index.html">
+            <picture>
+                <img class="logo__img mb-3 mb-lg-2 -logo-" src="img/pictures/logo.svg" alt="">
+            </picture>
+            <picture>
+                <img class="logo__text width-100" src="img/pictures/logo-text.svg" alt="">
+            </picture>
+        </a>
+        <div class="social flex align-items-center gap-3 display-md-none">
+            <a class="social__btn btn btn--white btn--light text-14 radius-max -waved-" href="#" target="_blank">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#tg" />
+                </svg>
+            </a>
+            <a class="social__btn btn btn--white btn--light text-18 radius-2 -waved-" href="#" target="_blank">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#wa" />
+                </svg>
+            </a>
+        </div>
+        <a class="flex align-items-center link link--underline display-md-none text-16 text-md-14 color-white" href="tel: 8 918 000 00 00">
+            <span class="fade-60 mr-2">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#phone" />
+                </svg>
+            </span>
+            <span class="bold-8">8 918 000 00 00</span>
+        </a>
+        <button class="btn btn--primary btn--fill text-24 text-md-18 radius-2 py-3 px-6 py-md-2 px-md-3 -waved-" data-fancybox data-type="ajax" data-src="dialogs/dialog-reserve.html">
+            <svg class="icon">
+                <use xlink:href="img/icons.svg#calendar" />
+            </svg>
+        </button>
+    </header>
+
+    <!-- Мобильное меню -->
+
+    <section class="mobile flex flex-direction-column fixed z-5 bg-black overflow-auto width-100 ease duration-3" data-mobile>
+        <header class="mobile__head flex align-items-center justify-content-between relative p-6 ease duration-5 delay-3">
+            <button class="btn btn--white btn--light p-3 radius-2 -waved- -close-">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#close" />
+                </svg>
+            </button>
+            <a class="logo btn flex-direction-column" href="index.html">
+                <picture>
+                    <img class="logo__img -logo-" src="img/pictures/logo.svg" alt="">
+                </picture>
+            </a>
+        </header>
+        <nav class="mobile__nav flex flex-direction-column gap-10 relative width-max p-6 mb-10 ease duration-9 delay-5">
+            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#cottages" data-href>Номера</a>
+            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#interior" data-href>Территория</a>
+            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#gallery" data-href>Галерея</a>
+            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#contacts" data-href>Контакты</a>
+        </nav>
+        <footer class="mobile__footer relative mt-auto p-6 ease duration-5 delay-9">
+            <address class="flex flex-direction-column mb-8">
+                <span class="text-16 color-white bold-4 mb-2">с. Первореченское, Динской р-н</span>
+                <a class="text-24 color-white bold-7 mb-5" href="tel: 8 918 000 00 00">8 918 000 00 00</a>
+                <a class="text-16 color-white bold-4 mb-5" href="mailto: kplace@gmail.com">kplace@gmail.com</a>
+            </address>
+            <div class="flex align-items-center gap-6 mb-8">
+                <a class="mobile__btn btn btn--white btn--light text-22 radius-max -waved-" href="javascript: ;">
+                    <svg class="icon">
+                        <use xlink:href="img/icons.svg#tg" />
+                    </svg>
+                </a>
+                <a class="mobile__btn btn btn--white btn--light text-30 radius-2 -waved-" href="javascript: ;">
+                    <svg class="icon">
+                        <use xlink:href="img/icons.svg#wa" />
+                    </svg>
+                </a>
+            </div>
+            <button class="btn btn--primary btn--fill radius-2 width-100 py-4 px-6 -waved-" data-fancybox data-type="ajax" data-src="dialogs/dialog-reserve.html">
+                <span class="text-18 mr-2">
+                    <svg class="icon">
+                        <use xlink:href="img/icons.svg#calendar" />
+                    </svg>
+                </span>
+                <span>Забронировать номер</span>
+            </button>
+        </footer>
+    </section>
+
+    <!-- Перетаскиваемая кнопка на мобильных устройствах -->
+
+    <div class="draggable-btn btn btn--primary btn--border fixed z-4 display-none display-md-flex radius-max bx-light overflow-hidden anim anim--scale -draggable-btn-" data-fancybox data-type="ajax" data-src="dialogs/dialog-reserve.html"></div>

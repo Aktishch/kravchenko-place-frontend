@@ -1,0 +1,11 @@
+// Отступы между элементами
+.gap {
+    @include getMedia {
+        @for $i from 0 through 10 {
+            &-#{$i} {
+                gap     : var(--size-#{$i});
+                grid-gap: var(--size-#{$i});
+            }
+        }
+    }
+}

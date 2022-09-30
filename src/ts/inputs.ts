@@ -1,0 +1,29 @@
+const inputName = (event: Event): void => {
+
+    const input = event.target as HTMLInputElement
+    const alphaExp: RegExp = /[0-9.,!@#$%^&*()-=_+`~{}/?<>|'"]/
+
+    if (input.value.match(alphaExp)) input.value = input.value.replace(alphaExp, '')
+
+}
+
+const inputNumber = (event: Event): void => {
+
+    const input = event.target as HTMLInputElement
+    input.value = input.value.replace(/^\.|[^\d\.]|\.(?=.*\.)|^0+(?=\d)/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
+}
+
+const init = (): void => {
+
+    document.addEventListener('input', ((event: Event) => {
+
+        if ((event.target as HTMLElement).classList.contains('-input-name-')) inputName(event)
+
+        if ((event.target as HTMLElement).classList.contains('-input-number-')) inputNumber(event)
+
+    }) as EventListener)
+
+}
+
+export default { init }

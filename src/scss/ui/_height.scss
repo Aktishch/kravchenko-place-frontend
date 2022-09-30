@@ -1,0 +1,12 @@
+// Высота
+.height {
+    @include getWidthOrHeight('height');
+}
+
+.min-height {
+    @include getWidthOrHeight('min-height');
+}
+
+.max-height {
+    @include getWidthOrHeight('max-height');
+}

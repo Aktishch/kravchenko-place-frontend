@@ -1,0 +1,14 @@
+// Ссылка
+.link {
+    @media(hover) {
+        &:hover {
+            cursor         : pointer;
+            text-decoration: underline;
+        }
+    }
+}
+
+// Курсор
+.cursor {
+    cursor: pointer;
+}
