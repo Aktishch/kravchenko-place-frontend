@@ -230,34 +230,3 @@
         }
     }
 }
-
-// Миксин для бегунка
-@mixin getRange {
-    appearance      : none;
-    height          : var(--size-4);
-    width           : var(--size-4);
-    background-color: var(--color-primary);
-    pointer-events  : all;
-    cursor          : ew-resize;
-
-    border: {
-        width : 2px;
-        style : solid;
-        color : var(--color-grey);
-        radius: 50%;
-    }
-
-    &:hover {
-        filter: brightness(110%);
-    }
-}
-
-// Миксин для элементов открытки
-@mixin getElemPostcard($top, $left, $transform, $origin, $position, $delay) {
-    top                : #{$top};
-    left               : #{$left};
-    transform          : #{$transform};
-    transform-origin   : #{$origin};
-    background-position: #{$position};
-    transition-delay   : #{$delay};
-}
