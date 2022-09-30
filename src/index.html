@@ -324,11 +324,11 @@
                     </button>
                 </div>
             </div>
-            <div class="images-slider relative radius-2 width-100 overflow-hidden">
+            <div class="images-slider relative radius-2 width-100 overflow-hidden -lightening-">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <% for (var i = 0; i < building.length; i++) { %>
-                            <a class="swiper-slide pic pic--square -lightening-" href="img/pictures/build-<%= building[i].number %>.jpg" data-fancybox>
+                            <a class="swiper-slide pic pic--square" href="img/pictures/build-<%= building[i].number %>.jpg" data-fancybox>
                                 <div class="loader">
                                     <svg class="icon">
                                         <use xlink:href="img/icons.svg#loader" />

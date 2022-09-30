@@ -53,7 +53,7 @@
             </span>
             <span class="bold-8">8 918 000 00 00</span>
         </a>
-        <button class="btn btn--primary btn--fill text-24 text-md-18 radius-2 py-3 px-6 py-md-2 px-md-3 -waved-" data-fancybox data-type="ajax" data-src="dialogs/dialog-reserve.html">
+        <button class="btn btn--primary btn--fill text-24 text-md-18 radius-2 py-3 px-6 py-md-2 px-md-3 -waved-" data-fancybox-modal="" data-type="ajax" data-src="dialogs/dialog-reserve.html">
             <svg class="icon">
                 <use xlink:href="img/icons.svg#calendar" />
             </svg>
@@ -69,6 +69,9 @@
                     <use xlink:href="img/icons.svg#close" />
                 </svg>
             </button>
+            <label class="dark-btn display-none display-md-block -dark-btn-">
+                <input class="btn btn--primary btn--border switch radius-4 -dark-switch-" type="checkbox">
+            </label>
             <a class="logo btn flex-direction-column" href="index.html">
                 <picture>
                     <img class="logo__img -logo-" src="img/pictures/logo.svg" alt="">
@@ -99,7 +102,7 @@
                     </svg>
                 </a>
             </div>
-            <button class="btn btn--primary btn--fill radius-2 width-100 py-4 px-6 -waved-" data-fancybox data-type="ajax" data-src="dialogs/dialog-reserve.html">
+            <button class="btn btn--primary btn--fill radius-2 width-100 py-4 px-6 -waved-" data-fancybox-modal data-type="ajax" data-src="dialogs/dialog-reserve.html">
                 <span class="text-18 mr-2">
                     <svg class="icon">
                         <use xlink:href="img/icons.svg#calendar" />
@@ -112,4 +115,10 @@
 
     <!-- Перетаскиваемая кнопка на мобильных устройствах -->
 
-    <div class="draggable-btn btn btn--primary btn--border fixed z-4 display-none display-md-flex radius-max bx-light overflow-hidden anim anim--scale -draggable-btn-" data-fancybox data-type="ajax" data-src="dialogs/dialog-reserve.html"></div>
+    <div class="draggable-btn btn btn--primary btn--border fixed z-4 display-none display-md-flex radius-max bx-light overflow-hidden anim anim--scale -draggable-btn-" data-fancybox-modal data-type="ajax" data-src="dialogs/dialog-reserve.html"></div>
+
+    <!-- Переключатель темной темы -->
+    <label class="dark-btn flex align-items-center display-md-none fixed z-5 border bg-white radius-4 p-3 -dark-btn-">
+        <span class="text-14 bold-4 mr-2">Темная тема</span>
+        <input class="btn btn--primary btn--border switch radius-4 -dark-switch-" type="checkbox">
+    </label>

@@ -127,6 +127,11 @@
     }
 }
 
+.dark-btn {
+    bottom: var(--size-2);
+    right : var(--size-4);
+}
+
 // Обратная связь
 .feedback {
     &__bg {

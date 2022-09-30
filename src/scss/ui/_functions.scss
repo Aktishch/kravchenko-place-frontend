@@ -214,14 +214,14 @@
     @else {
         background: {
             color: var(--color-white);
-            image: linear-gradient(#{$value-1}deg, var(--color-primary) 35%, var(--color-none) 41%),
-            linear-gradient(#{$value-2}deg, var(--color-primary) 35%, var(--color-none) 41%),
-            linear-gradient(#{$value-3}deg, var(--color-primary) 35%, var(--color-none) 41%);
+            image: linear-gradient(#{$value-1}deg, var(--color-black) 35%, var(--color-none) 41%),
+            linear-gradient(#{$value-2}deg, var(--color-black) 35%, var(--color-none) 41%),
+            linear-gradient(#{$value-3}deg, var(--color-black) 35%, var(--color-none) 41%);
         }
     }
 
     &:active {
-        box-shadow: inset 0 var(--size-2) var(--size-2) var(--color-black-10);
+        box-shadow: inset 0 var(--size-2) var(--size-2) var(--color-black-50);
     }
 
     @media(hover) {
