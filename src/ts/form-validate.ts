@@ -127,7 +127,7 @@ const formSubmit = (event: Event): void => {
 
     const form = event.target as HTMLFormElement
     const valid: boolean = validateForm(form)
-    const requestUrl: string = '/php/telegram-bot.php'
+    const requestUrl: string = '/submitHandler.php'
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
 
     if (valid) {
@@ -145,13 +145,17 @@ const formSubmit = (event: Event): void => {
             result.text()
 
         }).then(() => {
-
+            window.Fancybox.close()
             window.Fancybox.show([{
+                src: '/dialog-submit.php',
+                type: 'ajax',
+                dragToClose: false,
+                mainClass: 'fancybox-dialog',
 
-                src: '/dialogs/dialog-submit.html',
-                type: 'ajax'
-
-            }])
+            }], {
+                dragToClose: false,
+                mainClass: 'fancybox-dialog',
+            })
 
             form.reset()
             submitBtn.removeAttribute('disabled')
@@ -176,16 +180,21 @@ const submitModal = (event: Event): void => {
     if (valid) {
 
         const formData: FormData = new FormData(form)
-        const queryString = new URLSearchParams(String(formData)).toString()
-        const requestUrl: string = `/dialogs/dialog-feedback.html?${queryString}`
+        const queryString = new URLSearchParams(formData).toString()
+        const requestUrl: string = `/dialog-feedback.php?${queryString}`
         const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
     
+        
         window.Fancybox.show([{
-    
             src: requestUrl,
-            type: 'ajax'
-    
-        }])
+            type: 'ajax',
+            dragToClose: false,
+            mainClass: 'fancybox-dialog',
+
+        }], {
+            dragToClose: false,
+            mainClass: 'fancybox-dialog',
+        })
     
         form.reset()
         submitBtn.removeAttribute('disabled')

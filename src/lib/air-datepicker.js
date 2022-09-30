@@ -1,6 +1,7 @@
 import AirDatepicker from 'air-datepicker'
 import 'air-datepicker/air-datepicker.css'
 import localeRu from 'air-datepicker/locale/ru'
+import { isTouchDevice } from '../functions/isTouchDevice'
 
 const init = () => {
 
@@ -9,11 +10,11 @@ const init = () => {
     calendars.forEach(item => {
 
         new AirDatepicker(item, {
-    
             locale: localeRu,
-            // isMobile: true,
-            buttons: ['clear']
-    
+            isMobile: isTouchDevice(),
+            autoClose: true,
+            minDate: new Date()
+
         })
 
     })

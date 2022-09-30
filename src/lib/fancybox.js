@@ -19,7 +19,6 @@ const init = () => {
         </div>`
 
     Fancybox.bind('[data-fancybox-modal]', {
-
         dragToClose: false,
         mainClass: 'fancybox-dialog',
 
