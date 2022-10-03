@@ -44,30 +44,6 @@ const init = () => {
 
     })
 
-    const imagesSlider = new Swiper('.images-slider .swiper', {
-
-        pagination: {
-
-            el: '.building .swiper-pagination',
-            clickable: true
-
-        },
-
-        navigation: {
-
-            prevEl: '.building .swiper-button-prev',
-            nextEl: '.building .swiper-button-next'
-
-        },
-
-        slidesPerGroup: 1,
-        slidesPerView: 1,
-        allowTouchMove: false,
-        speed: 1000,
-        spaceBetween: 15
-
-    })
-
     const bgSlider = new Swiper('.bg-slider .swiper', {
 
         pagination: {
@@ -92,6 +68,47 @@ const init = () => {
 
     })
 
+    const imagesSlider = new Swiper('.images-slider .swiper', {
+
+        pagination: {
+
+            el: '.building .swiper-pagination',
+            clickable: true
+
+        },
+
+        navigation: {
+
+            prevEl: '.building .swiper-button-prev',
+            nextEl: '.building .swiper-button-next'
+
+        },
+
+        slidesPerGroup: 1,
+        slidesPerView: 1,
+        // allowTouchMove: false,
+        speed: 1000,
+        spaceBetween: 15,
+
+        breakpoints: {
+            0: {
+                allowTouchMove: true
+            },
+
+            1200: {
+                allowTouchMove: false
+            }
+        },
+
+        on: {
+            slideChange: (event) => {
+                detailSlider.slideTo(event.activeIndex)
+                bgSlider.slideTo(event.activeIndex)
+            }
+        }
+
+    })
+
     const detailsSlider = new Swiper('.details-slider .swiper', {
 
         pagination: {
@@ -110,6 +127,8 @@ const init = () => {
 
         slidesPerGroup: 1,
         slidesPerView: 1,
+
+        
 
     })
 

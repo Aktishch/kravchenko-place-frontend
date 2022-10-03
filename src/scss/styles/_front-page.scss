@@ -171,18 +171,30 @@
     max-width: 600px;
 
     &__pagination {
-        top       : 0;
-        left      : 0;
-        right     : 0;
-        bottom    : 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 71.3%, rgba(0, 0, 0, 0.5) 100%);
+        top           : 0;
+        left          : 0;
+        right         : 0;
+        bottom        : 0;
+        pointer-events: none;
+        background    : linear-gradient(180deg, rgba(0, 0, 0, 0) 71.3%, rgba(0, 0, 0, 0.5) 100%);
+
+        & .swiper-pagination {
+            pointer-events: all;
+        }
     }
 
 
     @media(max-width: $laptop) {
         & {
             order    : 1;
-            max-width: 350px;
+            height   : 350px;
+            max-width: 100%;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        & {
+            height: 300px;
         }
     }
 }
@@ -287,7 +299,7 @@
         max-width: 500px;
 
         &__btn {
-            width: var(--size-10);
+            width : var(--size-10);
             height: var(--size-10);
         }
     }
@@ -297,7 +309,7 @@
     }
 
     &__content {
-        max-width: 530px;
+        max-width   : 530px;
         border-color: var(--color-black-20);
     }
 

@@ -180,7 +180,7 @@ const submitModal = (event: Event): void => {
     if (valid) {
 
         const formData: FormData = new FormData(form)
-        const queryString = new URLSearchParams(formData).toString()
+        const queryString = new URLSearchParams(formData as URLSearchParams).toString()
         const requestUrl: string = `/dialog-feedback.php?${queryString}`
         const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
     
