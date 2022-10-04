@@ -77,33 +77,6 @@ const validateForm = (form: Element) => {
 
         }
 
-        if (input.classList.contains('-input-email-')) {
-
-            if (input.value.length < 6) inputFocus()
-
-        }
-
-        if (input.classList.contains('-input-select-')) {
-
-            if (input.value == '0') inputFocus()
-
-        }
-
-        if (input.classList.contains('-input-textarea-')) {
-
-            if (input.value.length > 0 && input.value.length < 10) {
-
-                error.innerText = 'Введите не менее 10 символов!'
-                inputFocus()
-
-            } else {
-
-                error.innerText = 'Пожалуйста, оставьте отзыв!'
-
-            }
-
-        }
-
         input.addEventListener('input', (() => {
 
             if (input.value.length > 0) {

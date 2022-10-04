@@ -6,7 +6,6 @@ import airDatepicker from './lib/air-datepicker'
 
 // Scripts
 import anchorTransition from './ts/data-href'
-import listing from './ts/listing'
 import scrolled from './ts/scrolled'
 import waved from './ts/waved'
 import lightening from './ts/lightening'
@@ -30,7 +29,6 @@ window.addEventListener('DOMContentLoaded', () => {
     sliderSwiper.init()
     airDatepicker.init()
     anchorTransition.init()
-    listing.init()
     scrolled.init()
     waved.init()
     lightening.init()
