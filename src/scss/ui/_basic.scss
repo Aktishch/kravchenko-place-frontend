@@ -67,11 +67,9 @@ body {
         & .contacts,
         & .feedback,
         & .footer {
-            background-color: var(--color-white);
-
-            & .color-white {
-                color: var(--color-black);
-            }
+            --color-black: #000;
+            --color-white: #fff;
+            --color-grey : #EEEEEE;
         }
     }
 }

@@ -25,6 +25,12 @@
         color           : var(--color-black);
         background-color: var(--color-white);
     }
+
+    @media(max-width: $tablet) {
+        &>.carousel__button.is-close {
+            position: fixed;
+        }
+    }
 }
 
 // Slider-swiper

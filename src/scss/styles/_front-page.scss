@@ -56,6 +56,18 @@
             order: 2;
         }
     }
+
+    @media(max-width: $tablet) {
+        &__img {
+            max-width: 390px;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__img {
+            max-width: 360px;
+        }
+    }
 }
 
 // Наши коттеджи
@@ -344,6 +356,14 @@
 
         &__description {
             order: 5;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &-slider {
+            &__slide {
+                height: 250px;
+            }
         }
     }
 }
