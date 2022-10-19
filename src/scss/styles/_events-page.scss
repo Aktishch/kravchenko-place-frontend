@@ -1,0 +1,74 @@
+// Презентация
+.presentation {
+    padding-top: 100px;
+    min-height : 630px;
+
+    &__bg {
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+    }
+
+    @media(max-width: $mobile) {
+        & {
+            min-height: 100vh;
+        }
+    }
+}
+
+// Необходимое
+.territory {
+    background-image: linear-gradient(155.29deg, var(--color-primary-20) 0%, var(--color-none) 49.24%);
+
+    &__block {
+        backdrop-filter: blur(var(--size-5));
+    }
+
+    &__content {
+        max-width: 470px;
+    }
+
+    &__pic {
+        max-width: 570px;
+    }
+
+    @media(max-width: $laptop) {
+        &__block {
+            max-width     : 500px;
+            flex-direction: column;
+        }
+
+        &__content,
+        &__pic {
+            max-width: 100%;
+        }
+    }
+}
+
+// Предложение
+.proposal {
+    &__items {
+        grid-auto-rows: 320px;
+    }
+
+    &__name {
+        top       : 0;
+        left      : 0;
+        right     : 0;
+        bottom    : 0;
+        background: linear-gradient(180deg, var(--color-none) 52%, var(--color-black-80) 79.72%);
+    }
+
+    @media(max-width: $laptop) {
+        &__item {
+            transition-delay: 0s;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__items {
+            grid-auto-rows: 220px;
+        }
+    }
+}

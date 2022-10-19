@@ -8,7 +8,6 @@ import airDatepicker from './lib/air-datepicker'
 import anchorTransition from './ts/data-href'
 import scrolled from './ts/scrolled'
 import waved from './ts/waved'
-import lightening from './ts/lightening'
 import maskTel from './ts/mask-tel'
 import inputs from './ts/inputs'
 import quantity from './ts/quantity'
@@ -31,7 +30,6 @@ window.addEventListener('DOMContentLoaded', () => {
     anchorTransition.init()
     scrolled.init()
     waved.init()
-    lightening.init()
     maskTel.init()
     inputs.init()
     quantity.init()

@@ -33,43 +33,18 @@
         max-width: 570px;
     }
 
-    &__picrure {
-        max-width : 500px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #E9E9E9;
-    }
-
-    &__img {
-        position : absolute;
-        left     : 0;
-        right    : 0;
-        bottom   : 0;
-        max-width: 410px;
+    &__pic {
+        max-width: 500px;
     }
 
     @media(max-width: $laptop) {
-        &__picrure {
+        &__pic {
             order : 1;
             margin: 0 auto;
         }
 
         &__content {
             order: 2;
-        }
-    }
-
-    @media(max-width: $tablet) {
-        &__picrure {
-            margin-top: 30px;
-        }
-
-        &__img {
-            max-width: 390px;
-        }
-    }
-
-    @media(max-width: $mobile) {
-        &__img {
-            max-width: 360px;
         }
     }
 }

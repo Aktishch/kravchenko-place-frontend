@@ -2,7 +2,7 @@
 .map {
     height: 630px;
 
-    @media(max-width: $tablet) {
+    @media(max-width: $laptop) {
         & {
             height: 460px;
         }

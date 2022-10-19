@@ -1,0 +1,151 @@
+    <% var data = {
+
+        title: 'Ивенты',
+        status: true
+
+    } %>
+
+    <%= _.template(require('./includes/header.html').default)({data}) %>
+
+    <!-- Презентация -->
+
+    <section class="presentation container flex flex-direction-column flex-grow relative bg-black overflow-hidden">
+        <div class="presentation__bg pic absolute width-100 height-100 duration-10 anim anim--bigger -elem-">
+            <div class="loader">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#loader" />
+                </svg>
+            </div>
+            <picture>
+                <source srcset="img/pictures/presentation.webp" type="image/webp">
+                <img class="pic__img" src="img/pictures/presentation.jpg" alt="" loading="lazy">
+            </picture>
+        </div>
+        <div class="presentation__content flex align-items-center justify-content-center flex-direction-column flex-grow relative width-100 height-100">
+            <h1 class="font-alt text text--center text-48 text-md-30 bold-5 color-white mb-8 mb-md-4 anim anim--up -elem-">
+                Kravchenko Place <br class="display-md-none">
+                для ваших мероприятий
+            </h1>
+            <h2 class="text text--center text-16 text-md-14 color-white bold-4 delay-2 anim anim--up -elem-">
+                Мы собрали все преимущества Kravchenko Place в PDF-презентации - скачивайте и смотрите!
+            </h2>
+        </div>
+    </section>
+
+    <!-- Необходимое -->
+
+    <section class="territory container bg-grey overflow-hidden">
+        <div class="territory__block flex align-items-center justify-content-between gap-10 gap-lg-8 gap-md-4 bg-white radius-2 mx-auto p-6 p-lg-8 py-md-6 px-md-4 anim anim--up -elem-">
+            <div class="territory__content width-100 pl-6 pl-lg-0 delay-3 anim anim--right -elem-">
+                <h1 class="title font-alt text-28 text-md-20 bold-5 pb-6 pb-md-4 mb-7 mb-md-4">
+                    Все неодходимые площадки в одном месте
+                </h1>
+                <p class="text-16 text-md-14 bold-4 interval-5 fade-70">
+                    Не нужно думать над разными площадками для разных событий в течении дня. Часто бывает, что допустим спортивное мероприятие проходит в одном месте, на торжественный или гала ужин нужно организовывать трансфер гостей в другое место, а располагать на отдых на ночь надо вообще в третьем месте. 
+                </p>
+            </div>
+            <div class="territory__pic pic pic--rect-x radius-2 radius-2 width-100 delay-3 anim anim--left -elem-">
+                <div class="loader">
+                    <svg class="icon">
+                        <use xlink:href="img/icons.svg#loader" />
+                    </svg>
+                </div>
+                <picture>
+                    <source srcset="img/pictures/images.webp" type="image/webp">
+                    <img class="pic__img" src="img/pictures/images.png" alt="" loading="lazy">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <!-- Предложение -->
+    <% var proposal = [
+        {
+            size: 'col-3 col-lg-6 col-md-12 row-2 row-lg-1',
+            text: 'Оборудованные <br class="display-md-none"> <span class="color-primary">мангальные зоны</span> и кухня',
+            number: '1'
+        },
+        {
+            size: 'col-3 col-lg-6 col-md-12 row-2 row-lg-1 delay-2',
+            text: 'Праздничная теплая <br class="display-md-none"> <span class="color-primary">подсветка</span> в саду',
+            number: '2'
+        },
+        {
+            size: 'col-3 col-lg-6 col-md-12 row-2 row-lg-1 delay-4',
+            text: '<span class="color-primary">Классный</span> бассейн <br class="display-md-none"> и русская баня',
+            number: '3'
+        },
+        {
+            size: 'col-3 col-lg-6 col-md-12 row-2 row-lg-1 delay-6',
+            text: 'Место для проведения <br class="display-md-none"> разных <span class="color-primary">активностей</span> <br class="display-md-none"> для коллектива',
+            number: '4'
+        },
+        {
+            size: 'col-6 col-lg-12 row-2 row-lg-1',
+            text: 'Укомплектованный и <span class="color-primary">полностью оборудованный</span> <br class="display-md-none"> просторный ресторан  плюс площадка с террасой <br class="display-md-none"> из <span class="color-primary">натурального дерева</span>',
+            number: '5'
+        },
+        {
+            size: 'col-6 col-md-12 row-1',
+            text: 'Новые коттеджи с современным <br class="display-md-none"> <span class="color-primary">дизайнерским</span> ремонтом для отдыха всех гостей',
+            number: '6'
+        },
+        {
+            size: 'col-6 col-md-12 row-1',
+            text: '<span class="color-primary">Охраняемая</span> парковка на территории',
+            number: '7'
+        },
+    ] %>
+    <section class="proposal container bg-white">
+        <h1 class="font-alt text text--center text-48 text-md-30 bold-5 mb-10 anim anim--up -elem-">Мы предлагаем вам</h1>
+        <div class="proposal__items grid gap-5 gap-md-2">
+            <% for (var i = 0; i < proposal.length; i++) { %>
+                <div class="proposal__item <%= proposal[i].size %> pic pic--rect-y radius-2 duration-5 anim anim--up -elem-">
+                    <div class="loader">
+                        <svg class="icon">
+                            <use xlink:href="img/icons.svg#loader" />
+                        </svg>
+                    </div>
+                    <picture>
+                        <source srcset="img/pictures/proposal-<%= proposal[i].number %>.webp" type="image/webp">
+                        <img class="pic__img pic__img--rise" src="img/pictures/proposal-<%= proposal[i].number %>.jpg" alt="" loading="lazy">
+                    </picture>
+                    <div class="proposal__name flex flex-direction-column flex-grow absolute width-100 height-100 py-10 px-6 py-tb-3 px-tb-3">
+                        <h2 class="mt-auto">
+                            <p class="text-16 text-tb-14 bold-8 color-white interval-5">
+                                <%= proposal[i].text %>
+                            </p>
+                        </h2>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Территория -->
+
+    <section class="territory container bg-grey overflow-hidden">
+        <div class="territory__block flex align-items-center justify-content-between gap-10 gap-lg-8 gap-md-4 bg-white radius-2 mx-auto p-6 p-lg-8 py-md-6 px-md-4 anim anim--up -elem-">
+            <div class="territory__content width-100 pl-6 pl-lg-0 delay-3 anim anim--right -elem-">
+                <h1 class="title font-alt text-28 text-md-20 bold-5 pb-6 pb-md-4 mb-7 mb-md-4">
+                    Большая территория и общая вместимость
+                </h1>
+                <p class="text-16 text-md-14 bold-4 interval-5 fade-70">
+                    Часто случается так, что площадки не могут комфортно обслуживать большое количество человек. Начинаются проблемы, не хватает территории, люди толкаются локтями, негде погулять, невозможно добиться какой-либо приватности, не хватает спальных мест, посуды, постельного белья и так далее. Все это вызывает недовольство и портит впечатление от любого праздника 
+                </p>
+            </div>
+            <div class="territory__pic pic pic--rect-x radius-2 radius-2 width-100 delay-3 anim anim--left -elem-">
+                <div class="loader">
+                    <svg class="icon">
+                        <use xlink:href="img/icons.svg#loader" />
+                    </svg>
+                </div>
+                <picture>
+                    <source srcset="img/pictures/territory.webp" type="image/webp">
+                    <img class="pic__img" src="img/pictures/territory.jpg" alt="" loading="lazy">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <%= _.template(require('./includes/footer.html').default)({}) %>

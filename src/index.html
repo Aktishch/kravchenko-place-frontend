@@ -1,6 +1,6 @@
     <% var data = {
 
-        title: 'kravchenko-place',
+        title: 'Главная',
         status: true
 
     } %>
@@ -97,17 +97,15 @@
             </p>
             <button class="btn btn--primary btn--fill radius-2 py-4 px-8">Узнать больше</button>
         </div>
-        <div class="about-us__picrure relative radius-2 width-100 delay-3 anim anim--up -elem-">
-            <div class="about-us__pic pic pic--square width-100">
-                <div class="loader">
-                    <svg class="icon">
-                        <use xlink:href="img/icons.svg#loader" />
-                    </svg>
-                </div>
+        <div class="about-us__pic pic pic--square bg-grey radius-2 width-100 delay-3 anim anim--left -elem-">
+            <div class="loader">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#loader" />
+                </svg>
             </div>
             <picture>
                 <source srcset="img/pictures/krav.webp" type="image/webp">
-                <img class="about-us__img width-100 mx-auto px-md-8" src="img/pictures/krav.png" alt="" loading="lazy">
+                <img class="pic__img" src="img/pictures/krav.png" alt="" loading="lazy">
             </picture>
         </div>
     </section>
@@ -319,7 +317,7 @@
                     </button>
                 </div>
             </div>
-            <div class="images-slider relative radius-2 width-100 overflow-hidden -lightening-">
+            <div class="images-slider relative radius-2 width-100 overflow-hidden">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <% for (var i = 0; i < building.length; i++) { %>
@@ -380,7 +378,7 @@
         </h2>
         <div class="grid gap-10 gap-lg-6">
             <% for (var i = 0; i < interior.length; i++) { %>
-                <div class="interior__item pic <%= interior[i].col %> col-tb-12 radius-2 ease-in duration-4 delay-2 anim anim--left -elem- -lightening-">
+                <div class="interior__item pic <%= interior[i].col %> col-tb-12 radius-2 ease-in duration-4 delay-2 anim anim--left -elem-">
                     <div class="loader">
                         <svg class="icon">
                             <use xlink:href="img/icons.svg#loader" />
@@ -441,7 +439,7 @@
         <div class="gallery__items grid gap-10 gap-lg-4">
             <% for (var i = 0; i < gallery.length; i++) { %>
                 <div class="col-6 <%= gallery[i].row %> radius-2 overflow-hidden ease-in-out duration-6 delay-4 anim anim--rotate -elem-">
-                    <a class="gallery__item gallery__item--<%= gallery[i].number %> pic display-block radius-2 width-100 height-100 -lightening-" href="img/pictures/gallery-<%= gallery[i].number %>.jpg" data-fancybox="gallery">
+                    <a class="gallery__item gallery__item--<%= gallery[i].number %> pic display-block radius-2 width-100 height-100" href="img/pictures/gallery-<%= gallery[i].number %>.jpg" data-fancybox="gallery">
                         <div class="loader">
                             <svg class="icon">
                                 <use xlink:href="img/icons.svg#loader" />
