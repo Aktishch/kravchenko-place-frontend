@@ -1,26 +1,21 @@
+import scrollBar from './scrollBar'
+
 const init = (): void => {
 
-    const html = document.querySelector('html') as HTMLElement
     const burger = document.querySelector('.-burger-') as HTMLElement
     const close = document.querySelector('.-close-') as HTMLElement
     const mobile = document.querySelector('*[data-mobile]') as HTMLElement
 
-    const documentWidth: number = document.documentElement.clientWidth
-    const windowWidth: number = window.innerWidth
-    const scrollBarWidth: number = windowWidth - documentWidth
-
     const openModal = (): void => {
 
-        html.classList.add('overflow-hidden')
-        html.style.marginRight = `${scrollBarWidth}px`
+        scrollBar.destroy()
         mobile.classList.add('mobile--show')
 
     }
 
     const closeModal = (): void => {
 
-        html.classList.remove('overflow-hidden')
-        html.style.marginRight = '0'
+        scrollBar.init()
         mobile.classList.remove('mobile--show')
 
     }

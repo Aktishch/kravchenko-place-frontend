@@ -1,3 +1,5 @@
+import scrollBar from './scrollBar'
+
 interface coordinates {
 
 	top: number,
@@ -5,68 +7,124 @@ interface coordinates {
 
 }
 
-const touchBtn = (): void => {
+const setTranslate = (elem: HTMLElement, xPos: number, yPos: number): void => {
 
-	const html = document.querySelector('html') as HTMLElement
+	elem.style.transform = `translate(${xPos}px, ${yPos}px)`
 
-	document.addEventListener('touchmove', ((event: TouchEvent) => {
+}
 
-		if ((event.target as HTMLElement).classList.contains('-draggable-btn-')) {
+const draggable = (id: string, el: string, storage: string): void => {
 
-			if (event.targetTouches.length == 1) {
+	const body = document.querySelector('body') as HTMLElement
+	const dragItem = document.querySelector(`.${id}`) as HTMLElement
 
-				html.classList.add('overflow-hidden')
-				const btn = event.target as HTMLElement
-				const touch: Touch = event.targetTouches[0]
+	const coordinat: coordinates = {
 
-				const coordinat: coordinates = {
+		top: 0,
+		left: 0
 
-					top: touch.clientY,
-					left: touch.clientX
+	}
 
-				}
+	let active: boolean = false
+	let currentY: number
+	let currentX: number
+	let initialY: number
+	let initialX: number
 
-				btn.style.top = `${coordinat.top}px`
-				btn.style.left = `${coordinat.left}px`
+	const dragElememt = () => {
 
-				sessionStorage.setItem('coordinates', JSON.stringify(coordinat))
+		if (el == 'parent') {
 
-			}
+			setTranslate((dragItem.parentElement as HTMLElement), coordinat.left, coordinat.top)
+
+		} else {
+
+			setTranslate(dragItem, coordinat.left, coordinat.top)
 
 		}
 
-	}) as EventListener)
+	}
 
-	document.addEventListener('touchend', ((event: Event) => {
+	const dragStart = (event: Event): void => {
 
-		if ((event.target as HTMLElement).classList.contains('-draggable-btn-')) html.classList.remove('overflow-hidden')
+		if (event.type === 'touchstart') {
 
-	}) as EventListener)
+			initialY = (event as TouchEvent).touches[0].clientY - coordinat.top
+			initialX = (event as TouchEvent).touches[0].clientX - coordinat.left
+
+		} else {
+
+			initialY = (event as MouseEvent).clientY - coordinat.top
+			initialX = (event as MouseEvent).clientX - coordinat.left
+
+		}
+
+		if (event.target === dragItem) active = true
+
+	}
+
+	const dragEnd = (): void => {
+
+		initialX = currentX
+		initialY = currentY
+		active = false
+
+	}
+
+	const drag = (event: Event): void => {
+
+		if (active) {
+
+			if (event.type === 'touchmove') {
+
+				currentX = (event as TouchEvent).touches[0].clientX - initialX
+				currentY = (event as TouchEvent).touches[0].clientY - initialY
+
+			} else {
+
+				currentX = (event as MouseEvent).clientX - initialX
+				currentY = (event as MouseEvent).clientY - initialY
+
+			}
+
+			coordinat.top = currentY
+			coordinat.left = currentX
+
+			dragElememt()
+
+			sessionStorage.setItem(`${storage}`, JSON.stringify(coordinat))
+
+		}
+
+	}
+
+	if (sessionStorage.getItem(`${storage}`)) {
+
+		coordinat.top = JSON.parse(sessionStorage.getItem('coordinates') || '{}').top
+		coordinat.left = JSON.parse(sessionStorage.getItem('coordinates') || '{}').left
+
+		dragElememt()
+
+	}
+
+	dragItem.addEventListener('touchstart', scrollBar.destroy as EventListener)
+	dragItem.addEventListener('touchend', scrollBar.init as EventListener)
+	dragItem.addEventListener('mousedown', scrollBar.destroy as EventListener)
+	dragItem.addEventListener('mouseup', scrollBar.init as EventListener)
+
+	body.addEventListener('touchstart', dragStart as EventListener, false)
+	body.addEventListener('touchmove', drag as EventListener, false)
+	body.addEventListener('touchend', dragEnd as EventListener, false)
+	
+	body.addEventListener('mousedown', dragStart as EventListener, false)
+	body.addEventListener('mousemove', drag as EventListener, false)
+	body.addEventListener('mouseup', dragEnd as EventListener, false)
 
 }
 
 const init = (): void => {
 
-	const btn = document.querySelector('.-draggable-btn-') as HTMLElement
-
-	if (sessionStorage.getItem('coordinates')) {
-
-		const coordinat: coordinates = JSON.parse(sessionStorage.getItem('coordinates') || '{}')
-
-		btn.style.top = `${coordinat.top}px`
-		btn.style.left = `${coordinat.left}px`
-
-	}
-
-	document.addEventListener('scroll', (() => {
-
-		let scrollTop: number = window.scrollY
-
-		scrollTop >= 250 ? btn.classList.remove('anim--scale') : btn.classList.add('anim--scale')
-
-	}) as EventListener)
-
-	touchBtn()
+	draggable('-draggable-btn-', '', 'coordinates')
 
 }
 

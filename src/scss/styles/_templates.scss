@@ -96,12 +96,12 @@
 
 // Перетаскиваемая кнопка на мобильных устройствах
 .draggable-btn {
-    width              : var(--size-10);
-    height             : var(--size-10);
-    top                : var(--size-8);
-    right              : var(--size-4);
-    padding            : 2px;
-    transition-property: transform, opacity;
+    width     : var(--size-10);
+    height    : var(--size-10);
+    top       : var(--size-8);
+    right     : var(--size-4);
+    padding   : 2px;
+    transition: none;
 
     margin: {
         top : calc(-1 * var(--size-5));
