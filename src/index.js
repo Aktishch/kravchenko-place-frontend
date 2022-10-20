@@ -15,6 +15,7 @@ import formValidate from './ts/form-validate'
 import scrollHeader from './ts/scroll-header'
 import mobileMenu from './ts/mobile-menu'
 import draggableBtn from './ts/draggable-btn'
+import outNumber from './ts/out-number'
 import theme from './ts/theme'
 
 // Style
@@ -38,5 +39,6 @@ window.addEventListener('DOMContentLoaded', () => {
     mobileMenu.init()
     draggableBtn.init()
     theme.init()
+    outNumber.init()
     
 })

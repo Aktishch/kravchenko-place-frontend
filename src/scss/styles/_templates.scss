@@ -96,40 +96,61 @@
 
 // Перетаскиваемая кнопка на мобильных устройствах
 .draggable-btn {
-    width     : var(--size-10);
-    height    : var(--size-10);
-    top       : var(--size-8);
-    right     : var(--size-4);
-    padding   : 2px;
-    transition: none;
+    width           : 130px;
+    height          : 140px;
+    bottom          : 150px;
+    left            : calc(100vw - 160px);
+    padding         : 2px;
+    touch-action    : none;
+    user-select     : none;
+    transition      : none;
+    background-image: linear-gradient(180deg, var(--color-none) 0%, var(--color-black-40) 67.5%);
 
-    margin: {
-        top : calc(-1 * var(--size-5));
-        left: calc(-1 * var(--size-5));
+    &__bg {
+        top           : 0;
+        left          : 0;
+        right         : 0;
+        bottom        : 0;
+        pointer-events: none;
     }
 
-    &::before {
-        content      : '';
-        display      : block;
-        position     : static;
-        width        : 100%;
-        height       : 100%;
-        border-radius: inherit;
-        box-shadow   : inherit;
+    &__pic {
+        width           : 54px;
+        height          : 54px;
+        background-image: radial-gradient(100% 100% at 0% 0%, var(--color-white-30) 0%, var(--color-white-10) 100%);
+    }
 
-        background: {
-            color   : currentColor;
-            image   : url('../img/pictures/calendar.svg');
-            repeat  : no-repeat;
-            position: center;
-            size    : 18px;
+    &__content {
+        pointer-events: none;
+    }
+
+    @media(max-width: $tablet) {
+        & {
+            width        : 60px;
+            height       : 60px;
+            left         : calc(100vw - 80px);
+            bottom       : var(--size-10);
+            border-radius: 50%;
+        }
+
+        &__pic {
+            width        : 100%;
+            height       : 100%;
+            border-radius: 50%;
+            background   : none;
+        }
+    }
+
+    @media(min-width: $tablet) {
+        & {
+            transform: none !important;
         }
     }
 }
 
 .dark-btn {
     bottom: 60px;
-    right : var(--size-4);
+    left  : calc(100vw - 230px);
 }
 
 // Обратная связь

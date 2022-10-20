@@ -1,7 +1,7 @@
     <% var data = {
 
         title: 'Ивенты',
-        status: true
+        status: false
 
     } %>
 
@@ -44,7 +44,7 @@
                     Не нужно думать над разными площадками для разных событий в течении дня. Часто бывает, что допустим спортивное мероприятие проходит в одном месте, на торжественный или гала ужин нужно организовывать трансфер гостей в другое место, а располагать на отдых на ночь надо вообще в третьем месте. 
                 </p>
             </div>
-            <div class="territory__pic pic pic--rect-x radius-2 radius-2 width-100 delay-3 anim anim--left -elem-">
+            <div class="territory__pic pic pic--rect-x radius-2 width-100 delay-3 anim anim--left -elem-">
                 <div class="loader">
                     <svg class="icon">
                         <use xlink:href="img/icons.svg#loader" />
@@ -94,11 +94,11 @@
             size: 'col-6 col-md-12 row-1',
             text: '<span class="color-primary">Охраняемая</span> парковка на территории',
             number: '7'
-        },
+        }
     ] %>
     <section class="proposal container bg-white">
-        <h1 class="font-alt text text--center text-48 text-md-30 bold-5 mb-10 anim anim--up -elem-">Мы предлагаем вам</h1>
-        <div class="proposal__items grid gap-5 gap-md-2">
+        <h1 class="proposal__title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem-">Мы предлагаем вам</h1>
+        <div class="proposal__items grid gap-5">
             <% for (var i = 0; i < proposal.length; i++) { %>
                 <div class="proposal__item <%= proposal[i].size %> pic pic--rect-y radius-2 duration-5 anim anim--up -elem-">
                     <div class="loader">
@@ -134,7 +134,7 @@
                     Часто случается так, что площадки не могут комфортно обслуживать большое количество человек. Начинаются проблемы, не хватает территории, люди толкаются локтями, негде погулять, невозможно добиться какой-либо приватности, не хватает спальных мест, посуды, постельного белья и так далее. Все это вызывает недовольство и портит впечатление от любого праздника 
                 </p>
             </div>
-            <div class="territory__pic pic pic--rect-x radius-2 radius-2 width-100 delay-3 anim anim--left -elem-">
+            <div class="territory__pic pic pic--rect-x radius-2 width-100 delay-3 anim anim--left -elem-">
                 <div class="loader">
                     <svg class="icon">
                         <use xlink:href="img/icons.svg#loader" />
@@ -143,6 +143,222 @@
                 <picture>
                     <source srcset="img/pictures/territory.webp" type="image/webp">
                     <img class="pic__img" src="img/pictures/territory.jpg" alt="" loading="lazy">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <!-- Предложение -->
+    <% var proposal = [
+        {
+            size: 'col-6 col-lg-12 row-2 row-lg-1',
+            text: 'Благодаря <span class="color-primary">правильной посадке</span> всех шести коттеджей, зон <br class="display-md-none">отдыха и мест досуга, территория способна с комфортом<br class="display-md-none"> вместить одновременно до 70 человек',
+            number: '8'
+        },
+        {
+            size: 'col-6 col-md-12 row-1',
+            text: 'Общая площадь полезного пространства <br class="display-md-none"> <span class="color-primary">4000</span> квадратных метров',
+            number: '9'
+        },
+        {
+            size: 'col-6 col-md-12 row-1',
+            text: '<span class="color-primary">Вместимый</span> ресторан, рассчитанный на одновременное <br class="display-md-none"> обслуживание 46 гостей',
+            number: '10'
+        },
+        {
+            size: 'col-6 col-md-12 row-1',
+            text: 'Баня рассчитана на одновременное парение <br class="display-md-none"> <span class="color-primary">6 гостей</span>',
+            number: '11'
+        },
+        {
+            size: 'col-6 col-lg-12 row-2 row-lg-1',
+            text: 'На отдых у нас могут остаться <span class="color-primary">до 32 человек</span> <br class="display-md-none">(можно больше, доп спальные места не проблема)',
+            number: '12'
+        },
+        {
+            size: 'col-6 col-md-12 row-1',
+            text: 'Бассейн <span class="color-primary">без ограничений</span>, сколько по кайфу',
+            number: '13'
+        }
+    ] %>
+    <section class="proposal container bg-white">
+        <h1 class="proposal__title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem-">Мы предлагаем вам</h1>
+        <div class="proposal__items grid gap-5">
+            <% for (var i = 0; i < proposal.length; i++) { %>
+                <div class="proposal__item <%= proposal[i].size %> pic pic--rect-y radius-2 duration-5 anim anim--up -elem-">
+                    <div class="loader">
+                        <svg class="icon">
+                            <use xlink:href="img/icons.svg#loader" />
+                        </svg>
+                    </div>
+                    <picture>
+                        <source srcset="img/pictures/proposal-<%= proposal[i].number %>.webp" type="image/webp">
+                        <img class="pic__img pic__img--rise" src="img/pictures/proposal-<%= proposal[i].number %>.jpg" alt="" loading="lazy">
+                    </picture>
+                    <div class="proposal__name flex flex-direction-column flex-grow absolute width-100 height-100 py-10 px-6 py-tb-3 px-tb-3">
+                        <h2 class="mt-auto">
+                            <p class="text-16 text-tb-14 bold-8 color-white interval-5">
+                                <%= proposal[i].text %>
+                            </p>
+                        </h2>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Опыт -->
+    <% var proposal = [
+        {
+            size: 'col-6 col-tb-12 row-2 row-tb-1',
+            text: '<span class="color-primary">Гостиничный уровень</span> сервиса, со сменой белья и всеми <br class="display-md-none"> душевыми принадлежностями',
+            number: '14'
+        },
+        {
+            size: 'col-6 col-tb-12 row-2 row-tb-1',
+            text: 'Помощь в организации <span class="color-primary">любого праздника</span> и торжества <br class="display-md-none"> на любых этапах',
+            number: '15'
+        },
+        {
+            size: 'col-6 col-tb-12 row-2 row-tb-1',
+            text: 'У нас есть контакты <span class="color-primary">проверенных</span> фотографов, <br class="display-md-none"> видеографов, ведущих, аренды музыки и света, <br class="display-md-none"> кавер групп, оформителей, аниматоров',
+            number: '16'
+        },
+        {
+            size: 'col-6 col-tb-12 row-2 row-tb-1',
+            text: 'Различные <span class="color-primary">готовые сценарии</span> <br class="display-md-none"> проведения любых мероприятий',
+            number: '17'
+        }
+    ] %>
+    <section class="proposal container bg-grey">
+        <h1 class="proposal__title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem-">Мы на опыте</h1>
+        <div class="proposal__items proposal__items--small grid gap-5">
+            <% for (var i = 0; i < proposal.length; i++) { %>
+                <div class="proposal__item <%= proposal[i].size %> pic pic--rect-y radius-2 duration-5 anim anim--up -elem-">
+                    <div class="loader">
+                        <svg class="icon">
+                            <use xlink:href="img/icons.svg#loader" />
+                        </svg>
+                    </div>
+                    <picture>
+                        <source srcset="img/pictures/proposal-<%= proposal[i].number %>.webp" type="image/webp">
+                        <img class="pic__img pic__img--rise" src="img/pictures/proposal-<%= proposal[i].number %>.jpg" alt="" loading="lazy">
+                    </picture>
+                    <div class="proposal__name flex flex-direction-column flex-grow absolute width-100 height-100 py-10 px-6 py-tb-3 px-tb-3">
+                        <h2 class="mt-auto">
+                            <p class="text-16 text-tb-14 bold-8 color-white interval-5">
+                                <%= proposal[i].text %>
+                            </p>
+                        </h2>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Измерение -->
+    <% var measurement = [
+        {
+            number: '4000',
+            title: 'м<sup>2</sup>',
+            text: 'Общая площадь базы'
+        },
+        {
+            number: '70',
+            title: 'чел',
+            text: 'Общая вместимость базы'
+        },
+        {
+            number: '32',
+            title: 'чел',
+            text: 'Количество спальных мест'
+        },
+        {
+            number: '46',
+            title: 'гостей',
+            text: 'Вместимость ресторана'
+        },
+        {
+            number: '6',
+            title: '',
+            text: 'Количество коттеджей'
+        },
+        {
+            number: '6-guests',
+            title: 'гостей',
+            text: 'Вместимость бани'
+        },
+        {
+            number: '30',
+            title: 'мин',
+            text: 'Время пути от Краснодара'
+        },
+        {
+            number: '72',
+            title: 'м<sup>2</sup>',
+            text: 'Площадь бассейна'
+        },
+    ] %>
+    <section class="measurement container relative bg-white overflow-hidden -measurement-">
+        <div class="measurement__bg pic absolute width-100 height-100 duration-10 anim anim--bigger -elem-">
+            <div class="loader">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#loader" />
+                </svg>
+            </div>
+            <picture>
+                <source srcset="img/pictures/measurement.webp" type="image/webp">
+                <img class="pic__img" src="img/pictures/measurement.jpg" alt="" loading="lazy">
+            </picture>
+        </div>
+        <div class="measurement__content relative">
+            <h1 class="measurement__title font-alt text text--center text-48 text-md-30 color-white bold-5 anim anim--up -elem-">Kravcenko Place в цифрах</h1>
+            <div class="measurement__items grid gap-8 gap-md-4">
+                <% for (var i = 0; i < measurement.length; i++) { %>
+                    <div class="measurement__item col-3 col-lg-6 flex flex-direction-column align-items-center justify-content-center radius-2 p-5 p-md-2">
+                        <h2 class="font-alt text text--center text-36 text-md-20 bold-5 color-white">
+                            <span class="-font-<%= measurement[i].number %>-">0</span> <%= measurement[i].title %>
+                        </h2>
+                        <p class="text text--center text-16 text-md-12 bold-3 color-white"><%= measurement[i].text %></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+
+    <section class="advantages container bg-grey">
+        <div class="advantages__block flex align-items-center justify-content-between gap-10 gap-lg-8 bg-white radius-2 mx-auto anim anim--up -elem-">
+            <div class="advantages__content width-100 delay-3 anim anim--right -elem-">
+                <h1 class="title font-alt text-28 text-md-20 bold-5 pb-6 pb-md-4 mb-7 mb-md-4">
+                    Все преимущества <br class="display-lg-none">в одной презетации
+                </h1>
+                <p class="text-16 text-md-14 bold-4 interval-5 fade-70 mb-10">
+                    Для вашего удобства мы собрали все преимущества <br>
+                    Kravchenko Place в PDF-презентации - скачивайте и смотрите! 
+                </p>
+                <a class="btn btn--primary btn--fill radius-2 width-max py-4 px-8" href="" download>
+                    <span class="text-22 mr-2">
+                        <svg class="icon">
+                            <use xlink:href="img/icons.svg#download" />
+                        </svg>
+                    </span>
+                    <span>Скачать</span>
+                </a>
+            </div>
+            <div class="advantages__pic pic pic--rect-x width-100 delay-3">
+                <picture>
+                    <source srcset="img/pictures/presentation-list-1.webp" type="image/webp">
+                    <img class="advantages__img advantages__img--1 absolute width-100 mx-auto z-2" src="img/pictures/presentation-list-1.png" alt="" loading="lazy">
+                </picture>
+                <picture>
+                    <source srcset="img/pictures/presentation-list-2.webp" type="image/webp">
+                    <img class="advantages__img advantages__img--2 absolute width-100 mx-auto z-1" src="img/pictures/presentation-list-2.png" alt="" loading="lazy">
+                </picture>
+                <picture>
+                    <source srcset="img/pictures/presentation-list-3.webp" type="image/webp">
+                    <img class="advantages__img advantages__img--3 absolute width-100 mx-auto" src="img/pictures/presentation-list-3.png" alt="" loading="lazy">
                 </picture>
             </div>
         </div>

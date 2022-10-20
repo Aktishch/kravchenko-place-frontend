@@ -28,9 +28,8 @@
             </svg>
         </button>
         <nav class="nav flex align-items-center justify-content-between display-lg-none width-100 gap-5">
-            <a class="link link--underline text-16 color-white bold-4 width-max" href="#cottages" data-href>Номера</a>
-            <a class="link link--underline text-16 color-white bold-4 width-max" href="#interior" data-href>Территория</a>
-            <a class="link link--underline text-16 color-white bold-4 width-max" href="#gallery" data-href>Галерея</a>
+            <a class="link link--underline text-16 color-white bold-4 width-max" href="index.html">Номера и территория</a>
+            <a class="link link--underline text-16 color-white bold-4 width-max" href="events.html">Ивенты</a>
             <a class="link link--underline text-16 color-white bold-4 width-max" href="#contacts" data-href>Контакты</a>
         </nav>
         <a class="logo btn flex-direction-column" href="index.html">
@@ -92,9 +91,8 @@
             </a>
         </header>
         <nav class="mobile__nav flex flex-direction-column gap-10 relative width-max p-6 mb-10 ease duration-9 delay-5">
-            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#cottages" data-href>Номера</a>
-            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#interior" data-href>Территория</a>
-            <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#gallery" data-href>Галерея</a>
+            <a class="link text-14 color-white bold-4 width-max" href="index.html">Номера и территория</a>
+            <a class="link text-14 color-white bold-4 width-max" href="events.html">Ивенты</a>
             <a class="link text-14 color-white bold-4 width-max -mobile-link-" href="#contacts" data-href>Контакты</a>
         </nav>
         <footer class="mobile__footer relative mt-auto p-6 ease duration-5 delay-9">
@@ -133,9 +131,25 @@
 
     <!-- Перетаскиваемая кнопка на мобильных устройствах -->
 
-    <div class="draggable-btn btn btn--primary btn--border fixed z-4 display-none display-md-flex radius-max bx-light -draggable-btn-" data-fancybox-modal data-type="ajax" data-src="dialogs/dialog-reserve.html"></div>
+    <div class="draggable-btn btn btn--primary btn--fill fixed z-4 radius-4 overflow-hidden -draggable-btn-" data-fancybox-modal data-type="ajax" data-src="dialogs/dialog-reserve.html">
+        <div class="draggable-btn__bg absolute pic width-100 height-100 fade-50">
+            <picture>
+                <source srcset="img/pictures/water.webp" type="image/webp">
+                <img class="pic__img" src="img/pictures/water.png" alt="" loading="lazy">
+            </picture>
+        </div>
+        <div class="draggable-btn__content flex flex-direction-column align-items-center justify-content-center relative py-5 px-3 py-tb-0 px-tb-0">
+            <span class="draggable-btn__pic flex align-items-center justify-content-center bg-primary <%= data.status ? 'text-28' : 'text-38' %> radius-2">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#<%= data.status ? 'calendar' : 'pdf' %>" />
+                </svg>
+            </span>
+            <p class="display-tb-none text text--center text-16 bold-6 mt-3"><%= data.status ? 'Оставить <br>заявку' : 'Скачать <br>презентацию' %></p>
+        </div>
+    </div>
 
     <!-- Переключатель темной темы -->
+    
     <label class="dark-btn flex align-items-center display-lg-none fixed z-5 border bg-white radius-4 p-3 -dark-btn-">
         <span class="text-14 bold-4 mr-2">Темная тема</span>
         <input class="btn btn--primary btn--border switch radius-4 -dark-switch-" type="checkbox">

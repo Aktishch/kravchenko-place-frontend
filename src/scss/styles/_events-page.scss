@@ -48,8 +48,16 @@
 
 // Предложение
 .proposal {
-    &__items {
+    &__title {
+        margin-bottom: 60px;
+    }
+
+    &__items:not(&__items--small) {
         grid-auto-rows: 320px;
+    }
+
+    &__items--small {
+        grid-auto-rows: 280px;
     }
 
     &__name {
@@ -61,14 +69,165 @@
     }
 
     @media(max-width: $laptop) {
+        &__title {
+            margin-bottom: 40px;
+        }
+
         &__item {
             transition-delay: 0s;
         }
     }
 
     @media(max-width: $mobile) {
-        &__items {
+        &__title {
+            margin-bottom: 32px;
+        }
+
+        &__items:not(&__items--small) {
             grid-auto-rows: 220px;
         }
+
+        &__items--small {
+            grid-auto-rows: 300px;
+        }
+    }
+}
+
+// Измерение
+.measurement {
+    &__bg {
+        top   : 0;
+        left  : 0;
+        right : 0;
+        bottom: 0;
+    }
+
+    &__title {
+        margin-bottom: 60px;
+    }
+
+    &__items {
+        grid-auto-rows: 225px;
+    }
+
+    &__item {
+        background     : var(--color-black-70) radial-gradient(98.48% 326.98% at 0% 3.35%, #0081B8 0%, rgba(17, 138, 189, 0.25) 100%);
+        backdrop-filter: blur(var(--size-5));
+    }
+
+    @media(max-width: $laptop) {
+        &__title {
+            margin-bottom: 40px;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__title {
+            margin-bottom: 32px;
+        }
+
+        &__items {
+            grid-auto-rows: 130px;
+        }
+    }
+}
+
+// Преимущества
+.advantages {
+    background-image: linear-gradient(155.29deg, var(--color-primary-20) 0%, var(--color-none) 49.24%);
+
+    &__block {
+        backdrop-filter: blur(var(--size-5));
+        padding        : var(--size-8) 80px;
+    }
+
+    &__content {
+        max-width: 500px;
+    }
+
+    &__pic {
+        max-width: 410px;
+
+        &::after {
+            content         : '';
+            position        : absolute;
+            left            : 0;
+            right           : 0;
+            bottom          : var(--size-5);
+            margin          : 0 auto;
+            width           : 100%;
+            max-width       : 270px;
+            height          : 3px;
+            background-color: var(--color-black-80);
+            filter          : blur(var(--size-2));
+        }
+    }
+
+    &__img {
+        left     : 0;
+        right    : 0;
+        max-width: 350px;
+
+        animation: {
+            name           : imgUp;
+            timing-function: ease-in-out;
+            duration       : 4s;
+            fill-mode      : forwards;
+            iteration-count: infinite;
+        }
+
+        &--1 {
+            top: 30px;
+        }
+
+        &--2 {
+            top            : 60px;
+            animation-delay: 0.3s;
+        }
+
+        &--3 {
+            top            : 90px;
+            animation-delay: 0.6s;
+        }
+    }
+
+    @media(max-width: $laptop) {
+        &__block {
+            max-width     : 500px;
+            flex-direction: column;
+            padding       : var(--size-6) var(--size-10);
+        }
+
+        &__content,
+        &__pic {
+            max-width: 100%;
+        }
+
+        &__pic::before {
+            padding-top: 100%;
+        }
+
+        &__pic::after,
+        &__img {
+            max-width: 80%;
+        }
+    }
+
+    @media(max-width: $mobile) {
+        &__block {
+            padding: var(--size-6) var(--size-4);
+        }
+    }
+}
+
+@keyframes imgUp {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
     }
 }
