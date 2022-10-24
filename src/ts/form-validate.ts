@@ -2,7 +2,8 @@ declare global {
 
     interface Window {
 
-        Fancybox: any
+        Fancybox: any,
+        ym: any
 
     }
 
@@ -130,6 +131,7 @@ const formSubmit = (event: Event): void => {
                 mainClass: 'fancybox-dialog',
             })
 
+            window.ym(90900738,'reachGoal','zayavka')
             form.reset()
             submitBtn.removeAttribute('disabled')
 
