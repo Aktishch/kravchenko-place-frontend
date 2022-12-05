@@ -7,23 +7,19 @@
 
 // Миксин цветов с разной прозрачностью
 @mixin getColors($color, $name) {
-    @if ($name=='primary'or $name=='black'or $name=='white'or $name=='gray'or $name=='grey') {
-        $rgb               : rgbValuesFromHex($color);
-        --color-#{$name}   : #{$color};
-        --color-#{$name}-10: rgba(#{$rgb}, 0.10);
-        --color-#{$name}-20: rgba(#{$rgb}, 0.20);
-        --color-#{$name}-30: rgba(#{$rgb}, 0.30);
-        --color-#{$name}-40: rgba(#{$rgb}, 0.40);
-        --color-#{$name}-50: rgba(#{$rgb}, 0.50);
-        --color-#{$name}-60: rgba(#{$rgb}, 0.60);
-        --color-#{$name}-70: rgba(#{$rgb}, 0.70);
-        --color-#{$name}-80: rgba(#{$rgb}, 0.80);
-        --color-#{$name}-90: rgba(#{$rgb}, 0.90);
-    }
 
-    @else {
-        --color-#{$name}: #{$color};
-    }
+    $rgb               : rgbValuesFromHex($color);
+    --color-#{$name}   : #{$color};
+    --color-#{$name}-10: rgba(#{$rgb}, 0.10);
+    --color-#{$name}-20: rgba(#{$rgb}, 0.20);
+    --color-#{$name}-30: rgba(#{$rgb}, 0.30);
+    --color-#{$name}-40: rgba(#{$rgb}, 0.40);
+    --color-#{$name}-50: rgba(#{$rgb}, 0.50);
+    --color-#{$name}-60: rgba(#{$rgb}, 0.60);
+    --color-#{$name}-70: rgba(#{$rgb}, 0.70);
+    --color-#{$name}-80: rgba(#{$rgb}, 0.80);
+    --color-#{$name}-90: rgba(#{$rgb}, 0.90);
+
 }
 
 // Миксин для медиа-запросов

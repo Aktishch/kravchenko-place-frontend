@@ -21,6 +21,15 @@ import theme from './ts/theme'
 // Style
 import './scss/index.scss'
 
+
+const excludeDates = [
+    +new Date(2022, 11, 31),
+    +new Date(2023, 0, 1),
+    +new Date(2023, 0, 2),
+]
+
+window.excludeDates = excludeDates
+
 // Connection
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -40,5 +49,5 @@ window.addEventListener('DOMContentLoaded', () => {
     draggableBtn.init()
     theme.init()
     outNumber.init()
-    
+
 })

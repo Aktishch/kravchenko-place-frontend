@@ -34,10 +34,18 @@ const init = () => {
         dpMin = new AirDatepicker(calendarFirst, {
 
             onSelect({ date }) {
-                dpMax.update({
-                    minDate: date
+                const opts = {
+                    minDate: date,
+                    maxDate: false
+                }
 
-                })
+                if (+date < Math.min(...window.excludeDates)) {
+                    opts.maxDate = new Date(Math.min(...window.excludeDates))
+                }
+
+
+                dpMax.update(opts)
+
 
             },
             onRenderCell: renderCellHandler,
@@ -52,10 +60,16 @@ const init = () => {
         dpMax = new AirDatepicker(calendarLast, {
 
             onSelect({ date }) {
-                dpMin.update({
-                    maxDate: date
+                const opts = {
+                    maxDate: date,
+                    minDate: new Date()
+                }
 
-                })
+                if (+date > Math.max(...window.excludeDates)) {
+                    opts.minDate = new Date(Math.max(...window.excludeDates))
+                }
+
+                dpMin.update(opts)
 
             },
             onRenderCell: renderCellHandler,
@@ -71,17 +85,20 @@ const init = () => {
 
 }
 
-const excludeDates = [
-    +new Date(2022, 11, 31),
-    +new Date(2023, 0, 1),
-    +new Date(2023, 0, 2),
-]
+function getMinMaxDate(dates) {
+    return {
+        min: Math.min(dates),
+    }
+}
+
 
 function renderCellHandler({ date, cellType }) {
     if (cellType === 'day') {
 
+
         return {
-            disabled: excludeDates.includes(+date),
+            disabled: window.excludeDates.includes(+date),
+            classes: window.excludeDates.includes(+date) ? 'datepicker-cell--red' : null
         }
     }
 }
