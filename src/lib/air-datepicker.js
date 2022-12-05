@@ -29,18 +29,18 @@ const init = () => {
 
         let dpMin, dpMax
 
+
+
         dpMin = new AirDatepicker(calendarFirst, {
 
-            onSelect({date}) {
-
+            onSelect({ date }) {
                 dpMax.update({
-                    
                     minDate: date
-                    
+
                 })
 
             },
-
+            onRenderCell: renderCellHandler,
             locale: localeRu,
             isMobile: isTouchDevice(),
             autoClose: true,
@@ -51,16 +51,14 @@ const init = () => {
 
         dpMax = new AirDatepicker(calendarLast, {
 
-            onSelect({date}) {
-
+            onSelect({ date }) {
                 dpMin.update({
-
                     maxDate: date
 
                 })
 
             },
-
+            onRenderCell: renderCellHandler,
             locale: localeRu,
             isMobile: isTouchDevice(),
             autoClose: true,
@@ -71,6 +69,21 @@ const init = () => {
 
     })
 
+}
+
+const excludeDates = [
+    +new Date(2022, 11, 31),
+    +new Date(2023, 0, 1),
+    +new Date(2023, 0, 2),
+]
+
+function renderCellHandler({ date, cellType }) {
+    if (cellType === 'day') {
+
+        return {
+            disabled: excludeDates.includes(+date),
+        }
+    }
 }
 
 export default { init }
