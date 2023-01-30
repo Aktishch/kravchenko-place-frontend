@@ -5,22 +5,17 @@ import { isTouchDevice } from '../functions/isTouchDevice'
 
 const init = () => {
 
-    // const calendars = document.querySelectorAll('.-calendar-')
-
-    // calendars.forEach(item => {
-
-    //     new AirDatepicker(item, {
-    //         locale: localeRu,
-    //         isMobile: isTouchDevice(),
-    //         autoClose: true,
-    //         minDate: new Date(),
-    //         position: item.dataset.position || 'bottom left'
-
-    //     })
-
-    // })
-
     const forms = document.querySelectorAll('.-form-')
+
+    const excludeDates = [
+
+        // +new Date(2022, 11, 31),
+        // +new Date(2023, 0, 1),
+        // +new Date(2023, 0, 2),
+
+    ]
+
+    window.excludeDates = excludeDates
 
     forms.forEach(form => {
 
@@ -29,25 +24,27 @@ const init = () => {
 
         let dpMin, dpMax
 
-
-
         dpMin = new AirDatepicker(calendarFirst, {
 
             onSelect({ date }) {
+
                 const opts = {
+
                     minDate: date,
                     maxDate: false
+
                 }
 
                 if (+date < Math.min(...window.excludeDates)) {
-                    opts.maxDate = new Date(Math.min(...window.excludeDates))
-                }
 
+                    opts.maxDate = new Date(Math.min(...window.excludeDates))
+
+                }
 
                 dpMax.update(opts)
 
-
             },
+
             onRenderCell: renderCellHandler,
             locale: localeRu,
             isMobile: isTouchDevice(),
@@ -60,18 +57,22 @@ const init = () => {
         dpMax = new AirDatepicker(calendarLast, {
 
             onSelect({ date }) {
+
                 const opts = {
                     maxDate: date,
                     minDate: new Date()
                 }
 
                 if (+date > Math.max(...window.excludeDates)) {
+
                     opts.minDate = new Date(Math.max(...window.excludeDates))
+
                 }
 
                 dpMin.update(opts)
 
             },
+
             onRenderCell: renderCellHandler,
             locale: localeRu,
             isMobile: isTouchDevice(),
@@ -95,12 +96,13 @@ function getMinMaxDate(dates) {
 function renderCellHandler({ date, cellType }) {
     if (cellType === 'day') {
 
-
         return {
             disabled: window.excludeDates.includes(+date),
             classes: window.excludeDates.includes(+date) ? 'datepicker-cell--red' : null
         }
+
     }
+
 }
 
 export default { init }

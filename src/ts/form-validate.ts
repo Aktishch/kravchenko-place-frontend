@@ -78,6 +78,22 @@ const validateForm = (form: Element) => {
 
         }
 
+        if (input.classList.contains('-input-textarea-')) {
+
+            if (input.value.length > 0 && input.value.length < 10) {
+
+                error.innerText = 'Введите не менее 10 символов!'
+
+                inputFocus()
+
+            } else {
+
+                error.innerText = 'Пожалуйста, оставьте идею!'
+
+            }
+
+        }
+
         input.addEventListener('input', (() => {
 
             if (input.value.length > 0) {
@@ -103,6 +119,7 @@ const formSubmit = (event: Event): void => {
     const valid: boolean = validateForm(form)
     const requestUrl: string = '/submitHandler.php'
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
+    let submitSrc = '/dialog-submit.php'
 
     if (valid) {
 
@@ -120,8 +137,11 @@ const formSubmit = (event: Event): void => {
 
         }).then(() => {
             window.Fancybox.close()
+
+            if (form.classList.contains('-idea-')) submitSrc = '/dialog-idea.php'
+
             window.Fancybox.show([{
-                src: '/dialog-submit.php',
+                src: submitSrc,
                 type: 'ajax',
                 dragToClose: false,
                 mainClass: 'fancybox-dialog',
@@ -131,7 +151,7 @@ const formSubmit = (event: Event): void => {
                 mainClass: 'fancybox-dialog',
             })
 
-            window.ym(90900738,'reachGoal','zayavka')
+            window.ym(90900738, 'reachGoal', 'zayavka')
             form.reset()
             submitBtn.removeAttribute('disabled')
 
@@ -158,8 +178,8 @@ const submitModal = (event: Event): void => {
         const queryString = new URLSearchParams(formData as URLSearchParams).toString()
         const requestUrl: string = `/dialog-feedback.php?${queryString}`
         const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement
-    
-        
+
+
         window.Fancybox.show([{
             src: requestUrl,
             type: 'ajax',
@@ -170,10 +190,10 @@ const submitModal = (event: Event): void => {
             dragToClose: false,
             mainClass: 'fancybox-dialog',
         })
-    
+
         form.reset()
         submitBtn.removeAttribute('disabled')
-        
+
     }
 
 }

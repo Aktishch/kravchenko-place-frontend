@@ -2,10 +2,12 @@ import ymaps from 'ymaps'
 
 const init = () => {
 
+    if (!document.querySelector('*[data-suggest-view]') && !document.getElementById('map')) return
+
     const mark = [45.15964104781791, 39.32342800895679]
     let center
 
-    window.screen.width > 576 ? center = [45.12139783884953,38.86812917662862] : center = [45.15964104781791, 39.32342800895679]
+    window.screen.width > 576 ? center = [45.12139783884953, 38.86812917662862] : center = [45.15964104781791, 39.32342800895679]
 
     ymaps.load('https://api-maps.yandex.ru/2.1/?lang=ru_RU').then(maps => {
 

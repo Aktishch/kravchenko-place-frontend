@@ -1,87 +1,90 @@
 
-    <!-- Контакты -->
-    <section class="contacts relative bg-white overflow-hidden" id="contacts">
-        <div class="contacts__container container absolute z-2 my-auto p-lg-0">
-            <div class="contacts__block relative radius-6 overflow-hidden anim anim--up -elem-">
-                <div class="contacts__content relative">
-                    <h1 class="font-alt text text-48 text-md-30 color-white bold-5 mb-10 mb-md-8">Контакты</h1>
-                    <div class="flex flex-direction-column mb-10">
-                        <div class="flex flex-direction-column mb-6 mb-md-4">
-                            <span class="text-16 text-md-14 bold-4 color-white fade-50 mb-1">Телефон</span>
-                            <a class="flex align-items-center link link--underline width-max color-white" href="tel: 8 918 000 00 00">
-                                <span class="text-20 text-md-18 mr-2">
-                                    <svg class="icon">
-                                        <use xlink:href="img/icons.svg#phone" />
-                                    </svg>
+    <% if (data.template) { %>
+
+        <!-- Контакты -->
+        <section class="contacts relative bg-white overflow-hidden" id="contacts">
+            <div class="contacts__container container absolute z-2 my-auto p-lg-0">
+                <div class="contacts__block relative radius-6 overflow-hidden anim anim--up -elem-">
+                    <div class="contacts__content relative">
+                        <h1 class="font-alt text text-48 text-md-30 color-white bold-5 mb-10 mb-md-8">Контакты</h1>
+                        <div class="flex flex-direction-column mb-10">
+                            <div class="flex flex-direction-column mb-6 mb-md-4">
+                                <span class="text-16 text-md-14 bold-4 color-white fade-50 mb-1">Телефон</span>
+                                <a class="flex align-items-center link link--underline width-max color-white" href="tel: 8 918 000 00 00">
+                                    <span class="text-20 text-md-18 mr-2">
+                                        <svg class="icon">
+                                            <use xlink:href="img/icons.svg#phone" />
+                                        </svg>
+                                    </span>
+                                    <span class="text-24 text-md-18 bold-7">8 918 000 00 00</span>
+                                </a>
+                            </div>
+                            <div class="flex flex-direction-column mb-6 mb-md-4">
+                                <span class="text-16 text-md-14 bold-4 color-white fade-50 mb-1">Адрес</span>
+                                <span class="flex align-items-center color-white">
+                                    <span class="text-20 text-md-18 mr-2">
+                                        <svg class="icon">
+                                            <use xlink:href="img/icons.svg#geo" />
+                                        </svg>
+                                    </span>
+                                    <span class="text-24 text-md-18 bold-7">с. Первореченское, Динской р-н</span>
                                 </span>
-                                <span class="text-24 text-md-18 bold-7">8 918 000 00 00</span>
+                            </div>
+                            <div class="flex flex-direction-column">
+                                <span class="text-16 text-md-14 bold-4 color-white fade-50 mb-1">Почта</span>
+                                <a class="flex align-items-center link link--underline width-max color-white" href="mailto: kplace@gmail.com">
+                                    <span class="text-20 text-md-18 mr-2">
+                                        <svg class="icon">
+                                            <use xlink:href="img/icons.svg#mail" />
+                                        </svg>
+                                    </span>
+                                    <span class="text-24 text-md-18 bold-7">kplace@gmail.com</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex align-items-center gap-5">
+                            <a class="contacts__btn btn btn--white btn--light text-16 text-md-22 radius-max -waved-" href="javascript: ;">
+                                <svg class="icon">
+                                    <use xlink:href="img/icons.svg#tg" />
+                                </svg>
                             </a>
-                        </div>
-                        <div class="flex flex-direction-column mb-6 mb-md-4">
-                            <span class="text-16 text-md-14 bold-4 color-white fade-50 mb-1">Адрес</span>
-                            <span class="flex align-items-center color-white">
-                                <span class="text-20 text-md-18 mr-2">
-                                    <svg class="icon">
-                                        <use xlink:href="img/icons.svg#geo" />
-                                    </svg>
-                                </span>
-                                <span class="text-24 text-md-18 bold-7">с. Первореченское, Динской р-н</span>
-                            </span>
-                        </div>
-                        <div class="flex flex-direction-column">
-                            <span class="text-16 text-md-14 bold-4 color-white fade-50 mb-1">Почта</span>
-                            <a class="flex align-items-center link link--underline width-max color-white" href="mailto: kplace@gmail.com">
-                                <span class="text-20 text-md-18 mr-2">
-                                    <svg class="icon">
-                                        <use xlink:href="img/icons.svg#mail" />
-                                    </svg>
-                                </span>
-                                <span class="text-24 text-md-18 bold-7">kplace@gmail.com</span>
+                            <a class="contacts__btn btn btn--white btn--light text-22 text-md-28 radius-2 -waved-" href="javascript: ;">
+                                <svg class="icon">
+                                    <use xlink:href="img/icons.svg#wa" />
+                                </svg>
+                            </a>
+                            <a class="contacts__btn btn btn--white btn--light text-22 text-md-28 radius-2 -waved-" href="javascript: ;">
+                                <svg class="icon">
+                                    <use xlink:href="img/icons.svg#inst" />
+                                </svg>
                             </a>
                         </div>
                     </div>
-                    <div class="flex align-items-center gap-5">
-                        <a class="contacts__btn btn btn--white btn--light text-16 text-md-22 radius-max -waved-" href="javascript: ;">
-                            <svg class="icon">
-                                <use xlink:href="img/icons.svg#tg" />
-                            </svg>
-                        </a>
-                        <a class="contacts__btn btn btn--white btn--light text-22 text-md-28 radius-2 -waved-" href="javascript: ;">
-                            <svg class="icon">
-                                <use xlink:href="img/icons.svg#wa" />
-                            </svg>
-                        </a>
-                        <a class="contacts__btn btn btn--white btn--light text-22 text-md-28 radius-2 -waved-" href="javascript: ;">
-                            <svg class="icon">
-                                <use xlink:href="img/icons.svg#inst" />
-                            </svg>
-                        </a>
+                    <div class="contacts__bg pic absolute width-100 height-100">
+                        <picture>
+                            <source srcset="img/pictures/contacts-bg.webp" type="image/webp">
+                            <img class="pic__img" src="img/pictures/contacts-bg.png" alt="" loading="lazy">
+                        </picture>
                     </div>
-                </div>
-                <div class="contacts__bg pic absolute width-100 height-100">
-                    <picture>
-                        <source srcset="img/pictures/contacts-bg.webp" type="image/webp">
-                        <img class="pic__img" src="img/pictures/contacts-bg.png" alt="" loading="lazy">
-                    </picture>
                 </div>
             </div>
-        </div>
-        <div class="map width-100 overflow-hidden" id="map"></div>
-    </section>
-
-    <!-- Подвал -->
-    <footer class="footer container flex align-items-center justify-content-between gap-5 bg-black py-4">
-        <div class="text-16 text-md-14 bold-5 color-white interval-7 fade-60">
-            Kravchenko Place <br class="display-none display-md-block"> ©2022
-        </div>
-        <div class="footer__main flex align-items-center gap-5 gap-md-2">
-            <span class="text-16 text-md-14 bold-5 color-white fade-60">Разработка:</span>
-            <a class="footer__link btn" href="http://stdkit.ru/" target="_blank">
-                <img class="width-100" src="img/pictures/std.svg" alt="">
-            </a>
-        </div>
-    </footer>
-
+            <div class="map width-100 overflow-hidden" id="map"></div>
+        </section>
+    
+        <!-- Подвал -->
+        <footer class="footer container flex align-items-center justify-content-between gap-5 bg-black py-4">
+            <div class="text-16 text-md-14 bold-5 color-white interval-7 fade-60">
+                Kravchenko Place <br class="display-none display-md-block"> ©2022
+            </div>
+            <div class="footer__main flex align-items-center gap-5 gap-md-2">
+                <span class="text-16 text-md-14 bold-5 color-white fade-60">Разработка:</span>
+                <a class="footer__link btn" href="http://stdkit.ru/" target="_blank">
+                    <img class="width-100" src="img/pictures/std.svg" alt="">
+                </a>
+            </div>
+        </footer>
+        
+    <% } %>
 
 </body>
 </html>

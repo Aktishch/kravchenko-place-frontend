@@ -28,7 +28,7 @@ address {
 
 textarea {
     resize: none;
-    height: 150px;
+    height: 225px;
 }
 
 sub,
@@ -71,7 +71,8 @@ body {
         & .presentation,
         & .proposal__name,
         & .measurement,
-        & .footer {
+        & .footer,
+        & .reviews {
             --color-black: #000;
             --color-white: #fff;
             --color-grey : #EEEEEE;

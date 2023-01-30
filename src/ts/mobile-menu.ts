@@ -2,9 +2,12 @@ import scrollBar from './scrollBar'
 
 const init = (): void => {
 
+    const mobile = document.querySelector('*[data-mobile]') as HTMLElement
+
+    if (!mobile) return
+
     const burger = document.querySelector('.-burger-') as HTMLElement
     const close = document.querySelector('.-close-') as HTMLElement
-    const mobile = document.querySelector('*[data-mobile]') as HTMLElement
 
     const openModal = (): void => {
 

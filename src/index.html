@@ -1,7 +1,8 @@
     <% var data = {
 
         title: 'Главная',
-        status: true
+        status: true,
+        template: true
 
     } %>
 
@@ -455,4 +456,4 @@
         </div>
     </section>
 
-    <%= _.template(require('./includes/footer.html').default)({}) %>
+    <%= _.template(require('./includes/footer.html').default)({data}) %>

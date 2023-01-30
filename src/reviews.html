@@ -1,0 +1,63 @@
+    <% var data = {
+
+        title: 'Отзывы',
+        status: true,
+        template: false
+
+    } %>
+
+    <%= _.template(require('./includes/header.html').default)({data}) %>
+
+    <section class="reviews container relative overflow-hidden">
+        <div class="reviews__bg pic absolute width-100 height-100 duration-10 anim anim--bigger -elem-">
+            <div class="loader">
+                <svg class="icon">
+                    <use xlink:href="img/icons.svg#loader" />
+                </svg>
+            </div>
+            <picture>
+                <source srcset="img/pictures/reviews.webp" type="image/webp">
+                <img class="pic__img" src="img/pictures/reviews.jpg" alt="" loading="lazy">
+            </picture>
+        </div>
+        <div class="flex flex-direction-column align-items-center relative color-white">
+            <a class="logo btn flex-direction-column mb-10 mb-md-5" href="index.html">
+                <picture>
+                    <img class="logo__img mb-3 mb-lg-2" src="img/pictures/logo.svg" alt="">
+                </picture>
+                <picture>
+                    <img class="logo__text width-100" src="img/pictures/logo-text.svg" alt="">
+                </picture>
+            </a>
+            <h1 class="font-alt text text--center text-48 text-lg-40 text-md-30 bold-5 mb-10 mb-md-5 anim anim--up -elem-">
+                Спасибо, что выбрали <br class="display-lg-none">
+                нашу базу отдыха!
+            </h1>
+            <h2 class="text text--center text-16 bold-4 interval-4 mb-10 pb-10 pb-md-0 anim anim--up -elem-">Пожалуйста, оставьте свой отзыв</h2>
+            <div class="reviews__items grid gap-8 gap-md-4 width-100 mx-auto">
+                <a class="reviews__item col-4 col-lg-12 flex flex-direction-column align-items-center justify-content-center relative radius-6 overflow-hidden border py-10 px-8 py-md-7 px-md-4 delay-3 anim anim--up -elem- -waved-" href="">
+                    <div class="reviews__img flex align-items-center justify-content-center bg-white radius-6 mb-8">
+                        <img class="icon" src="img/pictures/Lol.svg" alt="">
+                    </div>
+                    <h3 class="font-alt text text--center text-22 text-md-18 interval-4 bold-5 mb-8">Мне всё понравилось, <br class="display-lg-none"> большое спасибо</h3>
+                    <button class="btn btn--primary btn--fill radius-2 width-100 mt-auto py-4 px-8">Оставить отзыв</button>
+                </a>
+                <a class="reviews__item col-4 col-lg-12 flex flex-direction-column align-items-center justify-content-center relative radius-6 overflow-hidden border py-10 px-8 py-md-7 px-md-4 delay-5 anim anim--up -elem- -waved-" href="">
+                    <div class="reviews__img flex align-items-center justify-content-center bg-white radius-6 mb-8">
+                        <img class="icon" src="img/pictures/Angry.svg" alt="">
+                    </div>
+                    <h3 class="font-alt text text--center text-22 text-md-18 interval-4 bold-5 mb-8">У меня есть <br class="display-lg-none"> проблема/жалоба</h3>
+                    <button class="btn btn--primary btn--fill radius-2 width-100 mt-auto py-4 px-8">Описать проблему</button>
+                </a>
+                <a class="reviews__item col-4 col-lg-12 flex flex-direction-column align-items-center justify-content-center relative radius-6 overflow-hidden border py-10 px-8 py-md-7 px-md-4 delay-7 anim anim--up -elem- -waved-" href="">
+                    <div class="reviews__img flex align-items-center justify-content-center bg-white radius-6 mb-8">
+                        <img class="icon" src="img/pictures/Lamp.svg" alt="">
+                    </div>
+                    <h3 class="font-alt text text--center text-22 text-md-18 interval-4 bold-5 mb-8">У меня есть <br class="display-lg-none"> для вас идея</h3>
+                    <button class="btn btn--primary btn--fill radius-2 width-100 mt-auto py-4 px-8">Поделиться</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <%= _.template(require('./includes/footer.html').default)({data}) %>

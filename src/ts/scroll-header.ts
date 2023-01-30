@@ -1,6 +1,9 @@
 const init = (): void => {
 
 	const header = document.querySelector('.-header-') as HTMLElement
+
+	if (!header) return
+
 	const logo = document.querySelector('.-logo-') as HTMLImageElement
 	let prevScrollpos: number = window.pageYOffset
 
@@ -10,7 +13,7 @@ const init = (): void => {
 
 		if (prevScrollpos > currentScrollPos) {
 
-			header.style.top = '0' 
+			header.style.top = '0'
 
 		} else {
 
