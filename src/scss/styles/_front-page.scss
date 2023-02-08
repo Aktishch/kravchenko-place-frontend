@@ -379,7 +379,7 @@
     }
 
     &__img {
-        min-width    : 112px;
+        min-width: 112px;
         width    : 112px;
         height   : 112px;
         font-size: 60px;
@@ -395,7 +395,7 @@
 
     @media(min-width: $laptop) {
         & {
-            padding-top: 50px;
+            padding-top   : 50px;
             padding-bottom: 50px;
         }
     }
@@ -410,15 +410,16 @@
         }
 
         &__top {
-            flex-direction: row;
+            flex-direction : row;
             justify-content: flex-start;
         }
 
         &__img {
-            min-width    : 70px;
-            width    : 70px;
-            height   : 70px;
-            font-size: 42px;
+            min-width    : 47px;
+            width        : 48px;
+            height       : 48px;
+            font-size    : 24px;
+            border-radius: 16px;
         }
 
         &__text {
