@@ -379,6 +379,7 @@
     }
 
     &__img {
+        min-width    : 112px;
         width    : 112px;
         height   : 112px;
         font-size: 60px;
@@ -401,11 +402,27 @@
 
     @media(max-width: $laptop) {
         &__items {
-            max-width: 400px;
+            max-width: 340px;
         }
 
         &__item {
             transition-delay: 0s;
+        }
+
+        &__top {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        &__img {
+            min-width    : 70px;
+            width    : 70px;
+            height   : 70px;
+            font-size: 42px;
+        }
+
+        &__text {
+            text-align: left;
         }
     }
 }

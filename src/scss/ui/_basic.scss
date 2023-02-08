@@ -29,6 +29,10 @@ address {
 textarea {
     resize: none;
     height: 225px;
+
+    @media(max-width: $mobile) {
+        height: 120px;
+    }
 }
 
 sub,
