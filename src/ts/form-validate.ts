@@ -88,7 +88,7 @@ const validateForm = (form: Element) => {
 
             } else {
 
-                error.innerText = 'Пожалуйста, оставьте идею!'
+                error.innerText = 'Пожалуйста, заполните поле!'
 
             }
 
@@ -154,6 +154,16 @@ const formSubmit = (event: Event): void => {
             window.ym(90900738, 'reachGoal', 'zayavka')
             form.reset()
             submitBtn.removeAttribute('disabled')
+
+            if (form.classList.contains('-main-page-')) {
+
+                setTimeout((): void => {
+
+                    window.location.replace(window.location.origin)
+
+                }, 3000)
+
+            }
 
         }).catch((error: string) =>
 
