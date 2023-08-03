@@ -466,4 +466,94 @@ var gallery = [
   </div>
 </section>
 
+
+<section class="photos container">
+  <h1 class="photos-title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem- -show-">Фотоотчеты</h1>
+  <div class="photos-grid">
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item photos-item-higher">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item photos-item-higher">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item photos-item-higher hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item photos-item-higher hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+    <a href="img/test.gif" data-fancybox="photos" class="photos-item hidden">
+      <img src="img/test.gif" alt="">
+    </a>
+  </div>
+  <button class="btn btn--primary btn--fill radius-2 py-4 px-8 photos-button">Показать еще</button>
+</section>
+<script>
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.photos-button')) return
+
+    const ITEMS_TO_SHOW = 10
+    const hiddenItems = document.querySelectorAll('.photos-item.hidden')
+
+    for (let i = 0; i < ITEMS_TO_SHOW; i++) {
+      const item = hiddenItems[i];
+      if(!item) break
+      item.classList.remove('hidden')
+    }
+
+    if(!document.querySelector('.photos-item.hidden')){
+      event.target.closest('.photos-button').style.display = 'none'
+    }
+
+  })
+</script>
+
 <%= _.template(require('./includes/footer.html').default)({data}) %>
