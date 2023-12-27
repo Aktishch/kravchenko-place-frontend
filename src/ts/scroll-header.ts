@@ -11,20 +11,23 @@ const init = (): void => {
 
 		let currentScrollPos: number = window.pageYOffset
 
-		if (prevScrollpos > currentScrollPos) {
-
-			header.style.top = '0'
-
-		} else {
-
-			header.style.top = `-${header.clientHeight}px`
-
-		}
-
 		if (currentScrollPos > header.clientHeight) {
 
 			header.classList.add('bg-black')
 			logo.classList.add('display-none')
+
+			if ((document.documentElement as HTMLElement).clientWidth > 576) {
+				if (prevScrollpos > currentScrollPos) {
+	
+					header.style.top = '0'
+		
+				} else {
+		
+					header.style.top = `-${header.clientHeight}px`
+		
+				}
+			}
+
 
 		} else {
 
