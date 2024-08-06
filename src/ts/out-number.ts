@@ -1,16 +1,17 @@
-const outNum = (num: number, elem: string, time: number, step: number): void => {
+const outNum = (num: number, elem: HTMLElement, time: number, step: number): void => {
+	const timer = Math.round(time / (num / step))
+	let number = 0
 
-	const item = document.querySelector(`.${elem}`) as HTMLElement
-	const timer: number = Math.round(time / (num / step))
-	let number: number = 0
-
-	const interval: NodeJS.Timer = setInterval(() => {
+	const interval = setInterval(() => {
 
 		number = number + step
 
-		if (number == num) clearInterval(interval)
+		if (number >= num) {
+			number = num
+			clearInterval(interval)
+		}
 
-		item.innerHTML = String(number)
+		elem.innerHTML = String(number)
 
 	}, timer)
 
@@ -26,14 +27,14 @@ const scrollToPercent = (): void => {
 
 		if (screen.height >= blockTop) {
 
-			outNum(4000, '-font-4000-', 2500, 100)
-			outNum(70, '-font-70-', 2500, 1)
-			outNum(32, '-font-32-', 2500, 1)
-			outNum(46, '-font-46-', 2500, 1)
-			outNum(6, '-font-6-', 2500, 1)
-			outNum(6, '-font-6-guests-', 2500, 1)
-			outNum(30, '-font-30-', 2500, 1)
-			outNum(72, '-font-72-', 2500, 1)
+			const items = block.querySelectorAll<HTMLElement>('[data-type-numbers]')
+
+			items.forEach((el)=>{
+				const number = Number(el.getAttribute('data-type-numbers'))
+				const step = number > 1000 ? 10 : 1
+
+				outNum(number, el, 2500, step)
+			})
 
 			document.removeEventListener('scroll', scrollToPercent as EventListener)
 

@@ -4,7 +4,7 @@
         status: false,
         template: true
 
-    } %>
+    }; %>
 
     <%= _.template(require('./includes/header.html').default)({data}) %>
 
@@ -96,7 +96,7 @@
             text: '<span class="color-primary">Охраняемая</span> парковка на территории',
             number: '7'
         }
-    ] %>
+    ]; %>
     <section class="proposal container bg-white">
         <h1 class="proposal__title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem-">Мы предлагаем вам</h1>
         <div class="proposal__items grid gap-5">
@@ -181,7 +181,7 @@
             text: 'Бассейн <span class="color-primary">без ограничений</span>, сколько по кайфу',
             number: '13'
         }
-    ] %>
+    ]; %>
     <section class="proposal container bg-white">
         <h1 class="proposal__title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem-">Мы предлагаем вам</h1>
         <div class="proposal__items grid gap-5">
@@ -230,7 +230,7 @@
             text: 'Различные <span class="color-primary">готовые сценарии</span> <br class="display-md-none"> проведения любых мероприятий',
             number: '17'
         }
-    ] %>
+    ]; %>
     <section class="proposal container bg-grey">
         <h1 class="proposal__title font-alt text text--center text-48 text-md-30 bold-5 anim anim--up -elem-">Мы на опыте</h1>
         <div class="proposal__items proposal__items--small grid gap-5">
@@ -285,7 +285,7 @@
             text: 'Количество коттеджей'
         },
         {
-            number: '6-guests',
+            number: '6',
             title: 'гостей',
             text: 'Вместимость бани'
         },
@@ -299,7 +299,7 @@
             title: 'м<sup>2</sup>',
             text: 'Площадь бассейна'
         },
-    ] %>
+    ]; %>
     <section class="measurement container relative bg-white overflow-hidden -measurement-">
         <div class="measurement__bg pic absolute width-100 height-100 duration-10 anim anim--bigger -elem-">
             <div class="loader">
@@ -318,7 +318,7 @@
                 <% for (var i = 0; i < measurement.length; i++) { %>
                     <div class="measurement__item col-3 col-lg-6 flex flex-direction-column align-items-center justify-content-center radius-2 p-5 p-md-2">
                         <h2 class="font-alt text text--center text-36 text-md-20 bold-5 color-white">
-                            <span class="-font-<%= measurement[i].number %>-">0</span> <%= measurement[i].title %>
+                            <span  data-type-numbers="<%= measurement[i].number %>">0</span> <%= measurement[i].title %>
                         </h2>
                         <p class="text text--center text-16 text-md-12 bold-3 color-white"><%= measurement[i].text %></p>
                     </div>
